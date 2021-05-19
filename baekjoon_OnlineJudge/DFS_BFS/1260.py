@@ -6,15 +6,15 @@ for i in range(M):
 visit_list=[0]*(N+1)
 
 def dfs(V):
-    visit_list[V]=1 #¹æ¹®ÇÑ Á¡ 1·Î Ç¥½Ã
+    visit_list[V]=1 #ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ 1ï¿½ï¿½ Ç¥ï¿½ï¿½
     print(V, end=' ')
     for i in range(1,N+1):
         if(visit_list[i]==0 and matrix[V][i]==1):
             dfs(i)
 
 def bfs(V):
-    queue=[V] #µé·Á¾ß ÇÒ Á¤Á¡ ÀúÀå
-    visit_list[V]=0 #¹æ¹®ÇÑ Á¡ 0À¸·Î Ç¥½Ã
+    queue=[V] #ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    visit_list[V]=0 #ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
     while queue:
         V=queue.pop(0)
         print(V, end=' ')

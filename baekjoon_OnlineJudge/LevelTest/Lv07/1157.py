@@ -1,6 +1,7 @@
 import sys
 
-word = (sys.stdin.readline().rstrip()).upper()
+words = sys.stdin.readline().rstrip()
+words = words.upper()
 unique_words = list(set(words))
 
 count_list = []

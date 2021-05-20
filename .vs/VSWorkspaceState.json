@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\LevelTest\\Lv10"
+    "\\baekjoon_OnlineJudge\\LevelTest",
+    "\\baekjoon_OnlineJudge\\LevelTest\\Lv05"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\LevelTest",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\LevelTest\\Lv05\\3052.py",
   "PreviewInSolutionExplorer": false
 }

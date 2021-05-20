@@ -10,7 +10,7 @@ for c in people : #0
     
     for n in people:
         if (c[0]!=n[0]) & (c[1]!=n[1]): #2  
-            if (c[0]<n[0]) & (c[1]<n[1]): #3 w, h ¸ðµÎ Å« °æ¿ì
+            if (c[0]<n[0]) & (c[1]<n[1]): #3 w, h ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½
                 rank += 1
             
     print(rank)

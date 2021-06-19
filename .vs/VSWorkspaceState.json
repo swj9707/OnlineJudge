@@ -3,6 +3,7 @@
     "",
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\DFS_BFS",
+    "\\baekjoon_OnlineJudge\\JustDo",
     "\\baekjoon_OnlineJudge\\LevelTest",
     "\\baekjoon_OnlineJudge\\LevelTest\\Lv01",
     "\\baekjoon_OnlineJudge\\LevelTest\\Lv02",
@@ -10,6 +11,6 @@
     "\\baekjoon_OnlineJudge\\LevelTest\\Lv10",
     "\\baekjoon_OnlineJudge\\Practice"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Practice\\2525.py",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\JustDo\\2775.py",
   "PreviewInSolutionExplorer": false
 }

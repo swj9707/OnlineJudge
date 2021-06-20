@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\JustDo",
     "\\baekjoon_OnlineJudge\\LevelTest",
+    "\\baekjoon_OnlineJudge\\LevelTest\\Lv07",
     "\\baekjoon_OnlineJudge\\LevelTest\\Lv08",
     "\\baekjoon_OnlineJudge\\LevelTest\\Lv10",
-    "\\baekjoon_OnlineJudge\\LevelTest\\Lv12"
+    "\\baekjoon_OnlineJudge\\LevelTest\\Lv12",
+    "\\baekjoon_OnlineJudge\\Practice"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\JustDo\\2775.py",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Practice\\11098.py",
   "PreviewInSolutionExplorer": false
 }

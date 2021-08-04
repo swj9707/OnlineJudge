@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\Greedy"
+    "\\baekjoon_OnlineJudge\\Graph"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\DFS_BFS",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Graph\\1260.py",
   "PreviewInSolutionExplorer": false
 }

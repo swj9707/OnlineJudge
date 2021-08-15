@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\Graph"
+    "\\baekjoon_OnlineJudge\\Graph",
+    "\\Programmers",
+    "\\Programmers\\Practice",
+    "\\Programmers\\Practice\\LV2"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Graph\\1260.py",
+  "SelectedNode": "\\Programmers\\Practice\\LV2\\숫자의표현.py",
   "PreviewInSolutionExplorer": false
 }

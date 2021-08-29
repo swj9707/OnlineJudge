@@ -1,13 +1,12 @@
 import sys
 
-dial = ['ABC','DEF','GHI','JKL','MNO','PGRS','TUV','WXYZ','OPERATION']
+input = lambda : sys.stdin.readline().srtrip()
 
-x = sys.stdin.readline().rstrip()
-
-result = 0
-for i in range(len(x)):
-    for j in dial:
-        if x[i] in j:
-            result += dial.index(j)+3
-
-print(result)
+dial = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
+a = input().upper()
+ret = 0
+for j in range(len(a)):
+    for i in dial:
+        if a[j] in i:
+            ret += dial.index(i)+3
+print(ret)

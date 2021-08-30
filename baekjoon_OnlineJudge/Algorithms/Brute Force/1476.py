@@ -1,5 +1,5 @@
 import sys ; input = lambda : sys.stdin.readline().rstrip()
-# (1 ¡Â E ¡Â 15, 1 ¡Â S ¡Â 28, 1 ¡Â M ¡Â 19) 
+# (1 ï¿½ï¿½ E ï¿½ï¿½ 15, 1 ï¿½ï¿½ S ï¿½ï¿½ 28, 1 ï¿½ï¿½ M ï¿½ï¿½ 19) 
 E = 1 ; S = 1; M = 1
 e, s, m = map(int, input().split())
 year = 1    

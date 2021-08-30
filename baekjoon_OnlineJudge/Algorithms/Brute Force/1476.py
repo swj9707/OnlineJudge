@@ -1,5 +1,4 @@
 import sys ; input = lambda : sys.stdin.readline().rstrip()
-# (1 �� E �� 15, 1 �� S �� 28, 1 �� M �� 19) 
 E = 1 ; S = 1; M = 1
 e, s, m = map(int, input().split())
 year = 1    

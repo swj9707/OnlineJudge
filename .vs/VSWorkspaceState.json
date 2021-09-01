@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\LearnPython",
+    "\\baekjoon_OnlineJudge\\Algorithms",
+    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming",
     "\\Programmers",
     "\\Programmers\\Practice",
     "\\Programmers\\Practice\\LV2"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\LearnPython\\11170.py",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming\\15990.py",
   "PreviewInSolutionExplorer": false
 }

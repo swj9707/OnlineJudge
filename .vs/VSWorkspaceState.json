@@ -3,18 +3,12 @@
     "",
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\Algorithms",
-<<<<<<< HEAD
+    "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
     "\\baekjoon_OnlineJudge\\Algorithms\\Priority Queue",
     "\\Programmers",
     "\\Programmers\\Practice",
     "\\Programmers\\Practice\\LV2"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\Priority Queue\\1655.py",
-=======
-    "\\baekjoon_OnlineJudge\\Algorithms\\Brute Force",
-    "\\baekjoon_OnlineJudge\\LearnPython"
-  ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\Brute Force\\10972.py",
->>>>>>> 7118a6d643cf13736daf11fda5ea0889b6e4ee18
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\1260.py",
   "PreviewInSolutionExplorer": false
 }

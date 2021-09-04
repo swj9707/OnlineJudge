@@ -7,6 +7,18 @@ for _ in range(M):
     matrix[u][v] = matrix[v][u] = 1
 visit_list = [0] * (N+1)
 
-def 
+count = 0
+
+def dfs(V):
+    visit_list[V] = 1
+    for i in range(1, N+1):
+        if(visit_list[i] == 0 and matrix[V][i]==1):
+            dfs(i)
+for i in range(1, N+1):
+    if not visit_list[i]:
+        dfs[i]
+        count += 1
+
+print(count)
     
 

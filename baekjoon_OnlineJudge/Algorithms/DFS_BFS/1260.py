@@ -5,8 +5,6 @@ for i in range(M):
     matrix[a][b]=matrix[b][a]=1#a번 노드에 대해서 a-b관계, b번 노드에 대해서 b-a 관계 입력
 visit_list=[0]*(N+1)
 
-print(matrix)
-
 def dfs(V):
     visit_list[V]=1#방문한 위치에 1 마킹
     print(V, end=' ')#출력

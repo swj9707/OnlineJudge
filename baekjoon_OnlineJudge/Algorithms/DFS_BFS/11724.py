@@ -14,11 +14,11 @@ def dfs(V):
     for i in range(1, N+1):
         if(visit_list[i] == 0 and matrix[V][i]==1):
             dfs(i)
+
+
 for i in range(1, N+1):
     if not visit_list[i]:
-        dfs[i]
+        dfs(i)
         count += 1
 
 print(count)
-    
-

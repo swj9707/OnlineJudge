@@ -3,22 +3,27 @@ sys.setrecursionlimit(10**6)
 
 N, M = map(int, input().split())
 
-matrix = [[0] * (N+1) for i in range(N+1)]
-visit_list = [0]*(N+1)
+graph = [[] for i in range(N+1)]
+visit = [False for i in range(N+1)]
 
+visit[0] = True
 
-for _ in range(M):
-    a, b = map(int, input().split())
-    matrix[a][b] = matrix[b][a] = 1
-
-def dfs(V, number):
-    if number == 4:
+def dfs(V, depth):
+    visit[V] = True
+    if depth >= 4:
         print(1)
         exit()
-    visit_list[V] = 1
-    for i in range(1, N+1):
-        if(visit_list[i] == 0 and matrix[V][i]==1):
-            dfs(i, number + 1)
-          
-dfs(0, 0)
+    for i in graph[V]:
+        if visit[i] == False:
+            dfs(i, depth+1)
+            visit[i] = False
+
+for i in range(M):
+    a, b = map(int, input().split())
+    graph[a+1].append(b+1)
+    graph[b+1].append(a+1)
+
+for i in range(1, N+1):
+    dfs(i, 0)
+    visit[i] = False
 print(0)

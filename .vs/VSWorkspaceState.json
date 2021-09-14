@@ -4,9 +4,10 @@
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\Algorithms",
     "\\baekjoon_OnlineJudge\\Algorithms\\Brute Force",
+    "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
     "\\baekjoon_OnlineJudge\\Algorithms\\Math",
     "\\baekjoon_OnlineJudge\\LearnPython"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\2178.py",
   "PreviewInSolutionExplorer": false
 }

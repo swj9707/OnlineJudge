@@ -20,7 +20,11 @@ for i in range(0, N-2):
             changeData(i,j,matrixA)
             answer += 1
 
-if matrixA == matrixB:
+print(matrixA)
+print("")
+print(matrixB)
+
+if matrixA != matrixB:
     print(-1)
 else:
     print(answer)

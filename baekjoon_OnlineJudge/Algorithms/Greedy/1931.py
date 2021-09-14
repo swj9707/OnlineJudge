@@ -8,4 +8,12 @@ for _ in range(N):
 data = sorted(data, key = lambda x : x[0])
 data = sorted(data, key = lambda x : x[1])
 
-print(data)
+answer = 0
+start = 0
+
+for i in data:
+    if i[0] >= start:
+        start = i[1]
+        answer += 1
+
+print(answer)

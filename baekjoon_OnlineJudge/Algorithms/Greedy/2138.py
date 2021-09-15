@@ -10,15 +10,15 @@ def chgLights(A):
 
 def chgSwitch(lights, N):
     if N == 0:
-        lights[N] = 1 - lights[N]
-        lights[N + 1] = 1 - lights[N+1]
+        chgLights(lightss[N])
+        chgLights(lights[N + 1])
     elif N == len(lights):
-        lights[len(lights)] = 1 - lights[len(lights)]
-        lights[len(lights) - 1] = 1 - lights[len(lights) - 1]
+        chgLights(lights[len(lights)])
+        chgLights(lights[len(lights) - 1])
     else:
-        lights[N-1] = 1 - lights[N-1]
-        lights[N] = 1 - lights[N]
-        lights[N + 1] = 1 - lights[N+1]
+        chgLights(lights[N-1])
+        chgLights(lightss[N])
+        chgLights(lights[N + 1])
 
 now = input()
 answer = input()

@@ -4,18 +4,18 @@ N = int(input())
 
 def chgSwitch(Lights, N):
     if N == 0:
-        Lights[N] = str(1 - int(Lights[N]))
-        Lights[N+1] = str(1 - int(Lights[N + 1]))
-    elif N == len(lights):
-        Lights[len(lights)] = str(1 - int(Lights[len(Lights)]))
-        Lights[len(lights)-1] = str(1 - int(Lights[len(Lights) - 1]))
+        Lights[N] = 1 - Lights[N]
+        Lights[N+1] = 1 - Lights[N + 1]
+    elif N == len(Lights):
+        Lights[len(lights)] = 1 - Lights[len(Lights)]
+        Lights[len(lights)-1] = 1 - Lights[len(Lights) - 1]
     else:
-        Lights[N-1] = str(1 - int(Lights[N-1]))
-        Lights[N] = str(1 - int(Lights[N]))
-        Lights[N+1] = str(1 - int(Lights[N + 1]))
+        Lights[N-1] = 1 - Lights[N-1]
+        Lights[N] = 1 - Lights[N]
+        Lights[N+1] = 1 - Lights[N + 1]
 
-now = input()
-answer = input()
+now = list(map(int,input()))
+answer = list(map(int,input()))
 
 def first(Lights):
     count = 0

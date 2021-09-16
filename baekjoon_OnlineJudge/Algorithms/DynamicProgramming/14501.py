@@ -3,13 +3,11 @@ import sys ; input = lambda : sys.stdin.readline().rstrip()
 N = int(input())
 T = []
 P = []
-dp = []
+dp = [0 for i in range(N+1)]
 for _ in range(N):
     t, p = map(int, input().split())
     T.append(t)
     P.append(p)
-    dp.append(p)
-dp.append(0)
 
 for i in range(len(T)-2, -1, -1):
     if T[i] + i <= N:

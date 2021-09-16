@@ -8,7 +8,7 @@ for _ in range(N):
     t, p = map(int, input().split())
     T.append(t)
     P.append(p)
-    dp.apend(p)
+    dp.append(p)
 dp.append(0)
 
 for i in range(N-1, -1, -1):

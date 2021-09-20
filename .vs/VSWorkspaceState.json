@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\Algorithms\\BasicPractice",
-    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming",
+    "\\baekjoon_OnlineJudge\\Algorithms",
     "\\baekjoon_OnlineJudge\\Algorithms\\Graph",
-    "\\baekjoon_OnlineJudge\\Algorithms\\Greedy",
-    "\\baekjoon_OnlineJudge\\LearnCpp"
+    "\\baekjoon_OnlineJudge\\Algorithms\\Greedy"
   ],
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\Greedy\\11047.cpp",
   "PreviewInSolutionExplorer": false
 }

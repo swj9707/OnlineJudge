@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\LearnCpp"
+    "\\baekjoon_OnlineJudge\\Algorithms",
+    "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\LearnCpp\\5565.cpp",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\1260.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -3,8 +3,9 @@
     "",
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\Algorithms",
-    "\\baekjoon_OnlineJudge\\LearnCpp"
+    "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
+    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\LearnCpp\\10214.cpp",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming\\1010.cpp",
   "PreviewInSolutionExplorer": false
 }

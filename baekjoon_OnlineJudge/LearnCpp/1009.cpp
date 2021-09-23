@@ -15,11 +15,14 @@ int main() {
 	for (int i = 0; i < T; i++) {
 		int A, B;
 		cin >> A >> B;
-		int tmp = A % 10;
+		int result;
 		B = B % 4;
-		do {
-			tmp = (tmp * A) % 10;
-		} while (B > 1);
-		cout << tmp << '\n';
+		if (B == 0) B = 4;
+		if (A % 10 == 0) result = 10;
+		else {
+			result = pow(A, B);
+			result = result % 10;
+		}
+		cout << result << '\n';
 	}
 }

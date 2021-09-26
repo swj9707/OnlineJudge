@@ -4,12 +4,10 @@
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\Algorithms",
     "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
-    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming",
-    "\\baekjoon_OnlineJudge\\Algorithms\\Greedy",
     "\\Programmers",
     "\\Programmers\\Practice",
     "\\Programmers\\Practice\\LV2"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\NHN_pre.cpp",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\1012_2.cpp",
   "PreviewInSolutionExplorer": false
 }

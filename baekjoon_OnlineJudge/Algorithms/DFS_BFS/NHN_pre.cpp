@@ -39,6 +39,7 @@ int BFS(int X, int Y, int N) {
 }
 
 int main() {
+	init();
 	int N;
 	cin >> N;
 	for (int i = 0; i < N; i++) {

@@ -8,23 +8,23 @@ bool visit[MAX];
 
 int BFS(int n) {
 	priority_queue< pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > q;
-	q.push({ n, 0 });
+	q.push({ 0, n });
 	visit[n] = true;
 	while (!q.empty()) {
-		int x = q.top().first;
-		int time = q.top().second;
+		int time = q.top().first;
+		int x = q.top().second;
 		q.pop();
 		if (x == K) return time;		
 		if (x * 2 < MAX && !visit[x * 2]) {
-			q.push({ x * 2, time});
+			q.push({ time, x * 2});
 			visit[x * 2] = true;
 		}
 		if (x + 1 < MAX && !visit[x + 1]) {
-			q.push({ x + 1, time + 1 });
+			q.push({ time + 1, x + 1 });
 			visit[x + 1] = true;
 		}
 		if (x - 1 >= 0 && !visit[x - 1]) {
-			q.push({ x - 1, time + 1 });
+			q.push({ time + 1, x - 1 });
 			visit[x - 1] = true;
 		}
 	}

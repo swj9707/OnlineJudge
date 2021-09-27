@@ -14,9 +14,5 @@ int main() {
 	vector<int> data(N);
 	for (int i = 0; i < N; i++) {
 		cin >> data[i];
-	}	
-	for (int i = 0; i < N; i++) {
-		cout << data[i] << " ";
 	}
-	cout << '\n';
 }

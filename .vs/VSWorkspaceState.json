@@ -3,11 +3,11 @@
     "",
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\Algorithms",
-    "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
+    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming",
     "\\Programmers",
     "\\Programmers\\Practice",
     "\\Programmers\\Practice\\LV2"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\14226.cpp",
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming\\1912.cpp",
   "PreviewInSolutionExplorer": false
 }

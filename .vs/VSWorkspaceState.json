@@ -4,9 +4,11 @@
     "\\baekjoon_OnlineJudge",
     "\\baekjoon_OnlineJudge\\Algorithms",
     "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS",
-    "\\Programmers",
-    "\\Programmers\\Practice",
-    "\\Programmers\\Practice\\LV2"
+    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming"
   ],
+<<<<<<< HEAD
+=======
+  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DFS_BFS\\1697.cpp",
+>>>>>>> 293b0fc255bae8a1631cec1cfb3147290451278c
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#define MAX 100001
+#include <cstring>
 using namespace std;
 
 void init() {
@@ -9,17 +9,19 @@ void init() {
 }
 
 int main() {
+	init();
 	int N;
 	cin >> N;
 	vector<int> data(N);
-	int dp[MAX] = { 0, };
+	vector<int> DP(N, 0);
 	for (int i = 0; i < N; i++) {
 		cin >> data[i];
+		DP[i] = data[i];
 	}
-	int answer = dp[0];
+	int answer = DP[0];
 	for (int i = 1; i < N; i++) {
-		dp[i] = max(dp[i], dp[i - 1] + data[i]);
-		if (answer < dp[i]) answer = dp[i];
+		DP[i] = max(DP[i], DP[i - 1] + data[i]);
+		if (answer < DP[i]) answer = DP[i];
 	}
 	cout << answer << '\n';
 }

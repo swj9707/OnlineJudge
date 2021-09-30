@@ -19,6 +19,7 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		cin >> data[i];
 		dpLeft[i] = data[i];
+		dpRight[i] = data[i];
 	}
 	int answer = dpLeft[0];
 	for (int i = 1; i < N; i++) {
@@ -26,7 +27,9 @@ int main() {
 		answer = max(answer, dpLeft[i]);
 	}
 	for (int i = N - 2; i >= 0; i--) {
-
+		dpRight[i] = max(dpRight[i], dpRight[i + 1] + data[i]);
 	}
+	for (int i = 1; i < N -1 ; i++) answer = max(answer, dpLeft[i - 1] + dpRight[i + 1]);
+	cout << answer << '\n';
 
 }

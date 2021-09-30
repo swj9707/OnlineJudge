@@ -14,6 +14,19 @@ int main() {
 	int N;
 	cin >> N;
 	vector<int> data(N);
-	vector<int> DP()
+	vector<int> dpLeft(N, 0);
+	vector<int> dpRight(N, 0);
+	for (int i = 0; i < N; i++) {
+		cin >> data[i];
+		dpLeft[i] = data[i];
+	}
+	int answer = dpLeft[0];
+	for (int i = 1; i < N; i++) {
+		dpLeft[i] = max(dpLeft[i], dpLeft[i - 1] + data[i]);
+		answer = max(answer, dpLeft[i]);
+	}
+	for (int i = N - 2; i >= 0; i--) {
+
+	}
 
 }

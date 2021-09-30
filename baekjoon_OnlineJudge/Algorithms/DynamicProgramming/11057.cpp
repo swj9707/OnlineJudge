@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#define MOD 10007
 using namespace std;
 
 void init() {
@@ -24,9 +25,9 @@ int main() {
 			}
 		}
 		for (int i = 0; i < DP.size(); i++) {
-			answer += DP[i] %10007;
+			answer += DP[i] % MOD;
 		}
 	}
-	cout << answer % 10007 << '\n';
+	cout << answer % MOD << '\n';
 	return 0;
 }

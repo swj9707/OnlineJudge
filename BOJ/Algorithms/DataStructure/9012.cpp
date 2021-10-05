@@ -13,11 +13,12 @@ int main() {
 		cin >> str;
 		for (int j = 0; j < str.length(); j++) {
 			if (str[j] == '(') stk.push(str[j]);
-			else if (str[j] == ')') {
-				if (!stk.empty()) stk.pop();
+			else {
+				if (!stk.empty() && stk.top() == '(') stk.pop();
+				else stk.push(str[j]);
 			}
 		}
-		if (stk.empty()) cout << "YES" << '\n';
-		else cout << "NO" << '\n';
+		if (stk.empty()) cout << "YES\n";
+		else cout << "NO\n";
 	}
 }

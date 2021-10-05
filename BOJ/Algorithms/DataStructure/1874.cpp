@@ -10,7 +10,9 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		int data;
 		cin >> data;
-		if (stk.top() < data) stk.push(data);
+		if (stk.top() < data) {
+			stk.push(data);
+		}
 		else stk.pop();
 	}
 

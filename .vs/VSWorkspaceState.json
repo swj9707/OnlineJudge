@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\baekjoon_OnlineJudge",
-    "\\baekjoon_OnlineJudge\\Algorithms",
-    "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming"
+    "\\BOJ",
+    "\\BOJ\\Algorithms",
+    "\\BOJ\\Algorithms\\DFS_BFS"
   ],
-  "SelectedNode": "\\baekjoon_OnlineJudge\\Algorithms\\DynamicProgramming\\2156.cpp",
+  "SelectedNode": "\\BOJ\\Algorithms\\DFS_BFS\\7562.cpp",
   "PreviewInSolutionExplorer": false
 }

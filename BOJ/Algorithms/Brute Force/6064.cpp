@@ -36,5 +36,6 @@ int main() {
 			}
 		}
 		if (j > limit) cout << " - 1\n";
+
 	}
 }

@@ -3,8 +3,9 @@
     "",
     "\\BOJ",
     "\\BOJ\\Algorithms",
+    "\\BOJ\\Algorithms\\Brute Force",
     "\\BOJ\\Algorithms\\DFS_BFS"
   ],
-  "SelectedNode": "\\BOJ\\Algorithms\\DFS_BFS\\7562.cpp",
+  "SelectedNode": "\\BOJ\\Algorithms\\Brute Force\\3085.cpp",
   "PreviewInSolutionExplorer": false
 }

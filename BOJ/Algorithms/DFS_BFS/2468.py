@@ -1,5 +1,3 @@
-import sys
-from typing import Deque; input = lambda : sys.stdin.readline().rstrip()
 import sys ; input = lambda : sys.stdin.readline().rstrip()
 from collections import deque
 
@@ -19,7 +17,7 @@ def BFS(X, Y, safeArea):
             if 0 <= nx < N and 0 <= ny < N:
                 if matrix[nx][ny] >= safeArea and visit[nx][ny] == False:
                     visit[nx][ny] = True
-                    Q.append(nx, ny)
+                    Q.append((nx, ny))
 
 N = int(input())
 matrix = [list(map(int, input().split())) for i in range(N)]

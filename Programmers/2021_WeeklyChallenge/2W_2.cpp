@@ -24,7 +24,6 @@ string solution(vector<vector <int>> scores){
         int maxCount = count(data.begin(), data.end(), max);
         int minCount = count(data.begin(), data.end(), min);
         if(data[i] == max){
-            if(maxCount == 1) data.erase();
         }
     }
 }

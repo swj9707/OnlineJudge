@@ -2,7 +2,7 @@ import sys ; input = lambda : sys.stdin.readline().rstrip()
 from collections import deque
 
 matrix = [[0] * 101 for i in range(101)]
-visitList = [[False] * 101 for i in range(101)]
+visitList = [False] * 101
 
 def BFS(N : int, A : int) -> int:
     Q = deque()

@@ -21,7 +21,6 @@ def BFS(X, Y, safeArea):
 
 N = int(input())
 matrix = [list(map(int, input().split())) for i in range(N)]
-visit = [[False]*N for i in range(N)]
 minValue = min(map(min, matrix))
 maxValue = max(map(max, matrix))
 
@@ -29,6 +28,7 @@ safeArea_Max = minValue
 
 for safeArea in range(minValue, maxValue+1):
     tmp = 0
+    visit = [[False]*N for i in range(N)]
     for i in range(N):
         for j in range(N):
             if matrix[i][j] >= safeArea and visit[i][j] == False:

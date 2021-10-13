@@ -5,7 +5,6 @@
 
 using namespace std;
 
-int MATRIX[MAX][MAX];
 bool Visit[MAX][MAX];
 int N;
 int sourceX, sourceY;
@@ -23,7 +22,6 @@ void initSet() {
 }
 
 void initData(){
-	memset(MATRIX, 0, sizeof(MATRIX));
 	memset(Visit, false, sizeof(Visit));
 	Q.clear();
 }

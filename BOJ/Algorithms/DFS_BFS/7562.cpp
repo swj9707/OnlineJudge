@@ -33,18 +33,22 @@ int BFS(int X, int Y){
 	while (!Q.empty()){
 		int x = Q.front().first;
 		int y = Q.front().second;
-		result += 1;
 		Q.pop_front();
+		if(x == destX && y == destY){
+			return result;
+		}
 		for(int i = 0; i < 8; i++){
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if(nx >= 0 && nx < N && ny >= 0 && ny < N && !Visit[nx][ny]);
+			if(nx >= 0 && nx < N && ny >= 0 && ny < N && !Visit[nx][ny]){
+				Visit[nx][ny] == true;
+				result += 1;
+				Q.push_back({nx, ny});
+			}
 		}
-
 	}
-	
-
 }
+
 
 int main(){
 	initSet();
@@ -55,6 +59,7 @@ int main(){
 		cin >> N;
 		cin >> sourceX >> sourceY;		
 		cin >> destX >> destY;
-		BFS(sourceX, sourceY);	
+		int result = BFS(sourceX, sourceY);
+		cout << result << '\n';
 	}
 }

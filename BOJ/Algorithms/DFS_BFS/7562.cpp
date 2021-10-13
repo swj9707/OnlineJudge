@@ -6,6 +6,7 @@
 using namespace std;
 
 int MATRIX[MAX][MAX];
+bool Visit[MAX][MAX];
 int N;
 int sourceX, sourceY;
 int destX, destY;
@@ -23,11 +24,20 @@ void initSet() {
 
 void initData(){
 	memset(MATRIX, 0, sizeof(MATRIX));
+	memset(Visit, false, sizeof(Visit));
 	Q.clear();
 }
 
 int BFS(int X, int Y){
 	int result = 0;
+	Q.push_back({X, Y});
+	while (!Q.empty()){
+		int x = Q.front().first;
+		int y = Q.front().second;
+		result += 1;
+		Q.pop_front();
+
+	}
 	
 
 }

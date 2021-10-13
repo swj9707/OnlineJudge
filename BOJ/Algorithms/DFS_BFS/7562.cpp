@@ -21,7 +21,14 @@ void initSet() {
     cout.tie(0);
 }
 
-void BFS(){
+void initData(){
+	memset(MATRIX, 0, sizeof(MATRIX));
+	Q.clear();
+}
+
+int BFS(int X, int Y){
+	int result = 0;
+	
 
 }
 
@@ -30,7 +37,10 @@ int main(){
 	int T;
 	cin >> T;
 	for(int i = 0; i < T; i++){
-		memset(MATRIX, 0, sizeof(MATRIX));
-
+		initData();
+		cin >> N;
+		cin >> sourceX >> sourceY;		
+		cin >> destX >> destY;
+		BFS(sourceX, sourceY);	
 	}
 }

@@ -10,6 +10,11 @@ int N;
 int sourceX, sourceY;
 int destX, destY;
 
+int dx[8] = {1, 2, 2, 1, -1, -2, -2, -1};
+int dy[8] = {2, 1, -1, -2, -2, -1, 1, 2};
+
+deque<pair<int, int>> Q;
+
 void initSet() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);

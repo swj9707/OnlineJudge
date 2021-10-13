@@ -40,7 +40,7 @@ int BFS(int X, int Y){
 		for(int i = 0; i < 8; i++){
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if(nx >= 0 && nx < N && ny >= 0 && ny < N && !Visit[nx][ny] && M)
+			if(nx >= 0 && nx < N && ny >= 0 && ny < N && !Visit[nx][ny]);
 		}
 
 	}

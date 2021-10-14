@@ -38,7 +38,7 @@ void BFS(int X, int Y){
 			int nx = x + dx[i];
 			int ny = y + dy[i];
 			if(nx >= 0 && nx < N && ny >= 0 && ny < N && !Visit[nx][ny]){
-				Visit[nx][ny] = true;
+				Visit[nx][ny] == true;
 				MATRIX[nx][ny] = MATRIX[x][y] + 1;
 				Q.push({nx, ny});
 			}

@@ -5,7 +5,6 @@
 
 using namespace std;
 
-bool Visit[MAX][MAX];
 int N;
 int sourceX, sourceY;
 int destX, destY;
@@ -13,21 +12,15 @@ int destX, destY;
 int dx[8] = {1, 2, 2, 1, -1, -2, -2, -1};
 int dy[8] = {2, 1, -1, -2, -2, -1, 1, 2};
 
-deque<pair<int, int>> Q;
-
 void initSet() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
     cout.tie(0);
 }
 
-void initData(){
-	memset(Visit, false, sizeof(Visit));
-	Q.clear();
-}
-
-int BFS(int X, int Y){
+int BFS(int X, int Y, bool ** Visit){
 	int result = 0;
+	deque<pair<int, int>> Q;
 	Q.push_back({X, Y});
 	Visit[X][Y] = true;
 	while (!Q.empty()){
@@ -55,11 +48,15 @@ int main(){
 	int T;
 	cin >> T;
 	for(int i = 0; i < T; i++){
-		initData();
 		cin >> N;
+		bool ** VISIT;
+		VISIT = new bool * [N];
+		for(int j = 0; j < N; j++) VISIT[j] = new bool[N];
 		cin >> sourceX >> sourceY;		
 		cin >> destX >> destY;
-		int result = BFS(sourceX, sourceY);
+		int result = BFS(sourceX, sourceY, VISIT);
 		cout << result << '\n';
+		for(int j = 0; j < N; j++) delete [] VISIT[j];
+		delete [] VISIT;
 	}
 }

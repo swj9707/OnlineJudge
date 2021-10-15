@@ -1,6 +1,7 @@
 #include <iostream>
 #include <deque>
 #include <vector>
+#include <algorithm>
 #define MAX 101
 
 using namespace std;
@@ -19,21 +20,22 @@ void init(){
     cout.tie(NULL);
 }
 
-int BFS(int X, int Y){
+int BFS(int Y, int X){
     deque<pair<int, int>> Q;
     int result = 0;
-    Q.push_back({X, Y});
+    Q.push_back({Y, X});
+    visit[Y][X] = true;
     while(!Q.empty()){
-        int x = Q.front().first;
-        int y = Q.front().second;
+        int y = Q.front().first;
+        int x = Q.front().second;
         result += 1;
         Q.pop_front();
         for(int i = 0; i < 4; i++){
             int nx = x + dx[i];
             int ny = y + dy[i];
-            if(nx >= 0 && nx < M && ny >= 0 && ny < N && !visit[ny][nx] && MATRIX[ny][nx] == 0){
+            if(nx >= 0 && nx < N && ny >= 0 && ny < M && !visit[ny][nx] && MATRIX[ny][nx] == 0){
                 visit[ny][nx] = true;
-                Q.push_back({nx, ny});
+                Q.push_back({ny, nx});
             }
         }
     }
@@ -49,7 +51,7 @@ int main(){
         cin >> x1 >> y1 >> x2 >> y2;
         int deltaX = x2 - x1; int deltaY = y2 - y1;
         for(int Y = y1 ; Y < y1 + deltaY; Y++){
-            for(int X = x1; X < x1 + deltaX; X++){
+            for(int X = x1; X < x2; X++){
                 MATRIX[Y][X] = 1;
             }
         }
@@ -60,13 +62,14 @@ int main(){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++){
             if(!visit[j][i] && MATRIX[j][i] == 0){
-                int Answer = BFS(i, j);
+                int Answer = BFS(j, i);
                 result.push_back(Answer);
                 count +=1;
             }
         }
     }
     cout << count << "\n";
+    sort(result.begin(), result.end());
     for(int i = 0; i < result.size(); i++){
         cout << result[i] << " ";
     }

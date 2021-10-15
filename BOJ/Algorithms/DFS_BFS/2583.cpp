@@ -47,20 +47,15 @@ int main(){
     for(int T = 0; T < K ; T++){
         int x1, y1, x2, y2;
         cin >> x1 >> y1 >> x2 >> y2;
-        for(int y = y1; y <= y2; y++){
-            for(int x = x1; x <= x2; x++){
-                if(MATRIX[y][x] == 0) MATRIX[y][x] = 1;
+        int deltaX = x2 - x1; int deltaY = y2 - y1;
+        for(int Y = y1 ; Y < y1 + deltaY; Y++){
+            for(int X = x1; X < x1 + deltaX; X++){
+                MATRIX[Y][X] = 1;
             }
         }
     }
     int count = 0;
     vector<int> result;
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < M; j++){
-            cout << MATRIX[j][i];
-        }
-        cout << '\n';
-    }
 
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++){

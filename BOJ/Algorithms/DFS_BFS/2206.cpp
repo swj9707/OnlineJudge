@@ -8,6 +8,11 @@ int N, M;
 int MATRIX[MAX][MAX];
 bool visit[MAX][MAX];
 
+int BFS(){
+    deque<pair<int, int>> Q;
+    Q.push_back({})
+}
+
 int main(){
     cin >> N >> M;
     for(int i = 0; i < N; i++){

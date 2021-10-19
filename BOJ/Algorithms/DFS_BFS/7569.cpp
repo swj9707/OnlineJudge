@@ -36,6 +36,7 @@ void BFS(){
             int ny = Y + dy[i];
             int nz = Z + dz[i];
             if(ny >= 0 && ny < M && nx >= 0 && nx < N && nz >= 0 && nz < H && !visit[ny][nx][nz] && MATRIX[ny][nx][nz] == 0){
+                //cout << ny << " " << nx << " " << nz << '\n';
                 visit[ny][nx][nz] = true;
                 MATRIX[ny][nx][nz] = MATRIX[Y][X][Z] + 1;
                 Q.push_back({ny, nx, nz});
@@ -52,8 +53,7 @@ int main(){
             for(int x = 0; x < N; x++){
                 cin >> MATRIX[y][x][h];
                 if(MATRIX[y][x][h] == 1){
-                    point tmp = {y, x, h};
-                    Q.push_back(tmp);
+                    Q.push_back({y, x, h});
                     visit[y][x][h] = true;
                 }
                 else if(MATRIX[y][x][h] == -1) visit[y][x][h] = true;
@@ -67,6 +67,10 @@ int main(){
         for(int h = 0; h < H; h++){
             for(int y = 0; y < M; y++){
                 for(int x = 0; x < N; x++){
+                    if(MATRIX[y][x][h] == 0){
+                        cout << "-1\n";
+                        return 0;
+                    }
                     if(result < MATRIX[y][x][h]) result = MATRIX[y][x][h];
                 }
             }

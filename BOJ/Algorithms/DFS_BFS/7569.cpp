@@ -17,7 +17,6 @@ int MATRIX[MAX][MAX][MAX];
 bool visit[MAX][MAX][MAX];
 int M, N, H;
 deque<point> Q;
-deque<tuple<int, int, int>> q;
 
 void initSet() {
 	ios_base::sync_with_stdio(0);
@@ -36,7 +35,7 @@ void BFS(){
             int nx = dx[i];
             int ny = dy[i];
             int nz = dz[i];
-            if(ny >= 0 && ny < M && nx >= 0 && nx < N && nz >= 0 && nz < H){
+            if(ny >= 0 && ny < N && nx >= 0 && nx < M && nz >= 0 && nz < H){
                 visit[ny][nx][nz] = true;
                 MATRIX[ny][nx][nz] = MATRIX[Y][X][Z] + 1;
                 Q.push_back({ny, nx, nz});
@@ -48,9 +47,9 @@ void BFS(){
 int main(){
     initSet();
     cin >> M >> N >> H;
-    for(int h = 0; h < H; h++){
-        for(int x = 0; x < N; x++){
-            for(int y = 0; y < M; y++){
+    for(int y = 0; y < N; y++){
+        for(int x = 0; x < M; x++){
+            for(int h = 0; h < H; h++){
                 cin >> MATRIX[y][x][h];
                 if(MATRIX[y][x][h] == 1){
                     Q.push_back({y, x, h});
@@ -64,9 +63,9 @@ int main(){
     else {
         BFS();
         int result = 0;
-        for(int h = 0; h < H; h++){
-            for(int x = 0; x < N; x++){
-                for(int y = 0; y < M; y++){
+        for(int y = 0; y < N; y++){
+            for(int x = 0; x < M; x++){
+                for(int h = 0; h < H; h++){
                     if(result < MATRIX[y][x][h]) result = MATRIX[y][x][h];
                 }
             }

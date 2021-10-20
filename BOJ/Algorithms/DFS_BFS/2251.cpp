@@ -5,6 +5,7 @@
 using namespace std;
 
 int A, B, C;
+bool visit[MAX][MAX][MAX];
 
 void init(){
     ios::sync_with_stdio(false);

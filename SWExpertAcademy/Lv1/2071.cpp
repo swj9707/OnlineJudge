@@ -8,10 +8,11 @@ int main(){
     cin >> T;
     for(int i = 0; i < T; i++){
         int data[10];
-        int answer = 0;
+        int sum = 0;
         for(int j = 0 ; j < 10; j++) cin >> data[j];
-        for(int j = 0 ; j < 10; j++) answer += data[j];
-        cout << "#" << i+1 << " " << ceil(answer / 10) << '\n';
+        for(int j = 0 ; j < 10; j++) sum += data[j];
+        float answer = (float)sum / 10 + 0.5;
+        cout << "#" << i+1 << " " << floor(answer) << '\n';
     }
     return 0;
 }

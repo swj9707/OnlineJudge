@@ -6,12 +6,18 @@ int main(){
     int N;
     cin >> N;
     for(int i = 1; i <= N; i++){
-        string Data = to_string(i);
-        int count = 0;
-        for(int j = 0; j < Data.size(); j++){
-            if (strcmp(Data[j],"3")) cout << "-";
-            else cout << Data[j];
+        int tmp = i;
+        bool check = false;
+        while(tmp){
+            int digit = tmp % 10;
+            if(digit == 3 || digit == 6 || digit == 9) {
+                cout << "-";
+                check = true;
+            }
+            //else cout << digit;
+            tmp /= 10;
         }
-        cout << " ";    
+        if(check == false) cout << i;
+        cout << " ";
     }
 }

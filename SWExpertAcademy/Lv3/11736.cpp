@@ -15,6 +15,10 @@ int main(){
             maxNum = max(maxNum, Data[j]);
             minNum = min(minNum, Data[j]);
         }
-        cout << maxNum << " " << minNum << "\n";
+        int Answer = 0;
+        for (int j = 1; j <= N-2; j++){
+            if(Data[j] != maxNum && Data[j] != minNum) Answer++;
+        }
+        cout << "#" << i+1 << " " << Answer << "\n";
     }
 }

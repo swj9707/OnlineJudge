@@ -1,33 +1,33 @@
 #include <iostream>
-#include <queue> 
-#define MAX 1000000 + 1
+#include <deque>
+#define MAX 1000001
 
 using namespace std;
 
 bool visit[MAX];
 
-void BFS(int maxFloor, int nowStair, int Dest, int Up, int Down){
-    queue<pair<int, int>> DQ;
-    DQ.push({nowStair, 0});
-    visit[nowStair] = true;
+void BFS(int maxFloor, int now, int Dest, int up, int down){
+    deque<pair<int, int>> DQ;
+    DQ.push_back({now, 0});
+    visit[now] = true;
     while(!DQ.empty()){
         int X = DQ.front().first;
         int count = DQ.front().second;
-        DQ.pop();
+        DQ.pop_front();
         if(X == Dest){
             cout << count << "\n";
             return;
         }
-        if(!visit[X + Up] && X + Up <= maxFloor) {
-            DQ.push({X + Up, count + 1});
-            visit[X + Up] = true;
-        }  
-        if(!visit[X - Down] && X - Down >= 1) {
-            DQ.push({X - Down, count + 1});
-            visit[X - Down] = true;
+        if(X + up <= maxFloor && !visit[X+up]){
+            DQ.push_back({X+up, count + 1});
+            visit[X+up] = true;   
+        }
+        if(X - down > 0 && !visit[X-down]){
+            DQ.push_back({X-down, count + 1});
+            visit[X-down] = true;   
         }
     }
-    cout << "use the stairs" << "\n";
+    cout << "use the stairs" << '\n';
     return;
 }
 

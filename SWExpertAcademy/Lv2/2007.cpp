@@ -8,13 +8,12 @@ int main(){
     for(int i = 0; i < T; i++){
         string tmp;
         cin >> tmp;
-        char first = tmp[0];
-        int count = 1;
+        int count = 0;
         for(int j = 1; j < tmp.size(); j++){
-            if(first == tmp[j]) break;
-            else count += 1;
+            if(tmp[j] == tmp[count]) count++;
+            else count = 0;
         }
-        cout << "#" << i+1 << " " << count;
+        cout << "#" << i+1 << " " << (int)tmp.size() - count;
         cout << "\n";
     }
 }

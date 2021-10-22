@@ -9,6 +9,11 @@ bool visit[MAX];
 
 void BFS(int maxFloor, int nowStair, int Dest, int Up, int Down){
     deque<int> DQ;
+    DQ.push_back(nowStair);
+    visit[nowStair] = true;
+    while(!DQ.empty()){
+
+    }
 
 }
 

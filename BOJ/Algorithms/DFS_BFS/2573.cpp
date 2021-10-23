@@ -15,6 +15,10 @@ int dy[4] = {0, 0, 1, -1};
 
 int N, M;
 
+void initSet() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+}
 void printMatrix()
 {
     for (int i = 0; i < N; i++)
@@ -83,6 +87,7 @@ void Melt()
 
 int main()
 {
+    initSet();
     cin >> N >> M;
     for (int i = 0; i < N; i++)
     {

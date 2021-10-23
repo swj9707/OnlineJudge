@@ -21,6 +21,10 @@ void printMatrix(){
     }
 }
 
+void test(){
+    V.p
+}
+
 void BFS(int Y, int X){
     deque<pair<int, int>> DQ;
     DQ.push_back({Y, X});

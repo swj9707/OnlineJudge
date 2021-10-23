@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <stdlib.h>
+#include <windows.h>
 #define MAX 300
 using namespace std;
 
@@ -38,7 +39,7 @@ void BFS(int Y, int X)
         {
             int ny = y + dy[i];
             int nx = x + dx[i];
-            if (ny >= 0 && ny < N && nx >= 0 && nx < M && !Visit[ny][nx])
+            if (ny >= 0 && ny < N && nx >= 0 && nx < M && !Visit[ny][nx] && MATRIX[ny][nx] != 0)
             {
                 Visit[ny][nx] = true;
                 DQ.push_back({ny, nx});
@@ -94,7 +95,6 @@ int main()
         memset(Visit, false, sizeof(Visit));
         int SearchCount = 0;
         Melt();
-        printMatrix();
         Answer += 1;
         for (int i = 0; i < N; i++)
         {

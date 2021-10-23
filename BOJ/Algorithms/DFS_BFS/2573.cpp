@@ -22,7 +22,6 @@ void printMatrix(){
 }
 
 void BFS(int Y, int X){
-    memset(Visit, false, sizeof(Visit));
     deque<pair<int, int>> DQ;
     DQ.push_back({Y, X});
     Visit[Y][X] = true;
@@ -71,6 +70,11 @@ int main(){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++) cin >> MATRIX[i][j];
     }
-    //Melt();
-    //printMatrix();
+    int SearchCount = 0;
+    while(SearchCount < 2){
+    memset(Visit, false, sizeof(Visit));
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < M; j++) cin >> MATRIX[i][j];
+    }
+    }
 }

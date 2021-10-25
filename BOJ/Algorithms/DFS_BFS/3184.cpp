@@ -8,6 +8,7 @@ char MATRIX[MAX][MAX];
 bool Visit[MAX][MAX];
 int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
+int shp, wlf;
 
 void BFS(int Y, int X){
     deque< pair<int, int>> DQ;
@@ -31,9 +32,10 @@ void BFS(int Y, int X){
         }        
     }
     if(sheep != 0 || wolf != 0){
-    cout << sheep << " " << wolf << '\n';}    
+        if(sheep > wolf) shp += sheep;
+        else wlf += wolf;
+    }
 }
-
 int main(){
     cin >> R >> C;
     for(int i = 0; i < R; i++){
@@ -45,5 +47,6 @@ int main(){
         for(int j = 0; j < C; j++){
             if(MATRIX[i][j] != '#' && !Visit[i][j]) BFS(i, j);
         }
-    }      
+    }   
+    cout << shp << " " <<wlf<<'\n';  
 }

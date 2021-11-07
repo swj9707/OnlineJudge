@@ -13,16 +13,18 @@ void BFS()
     while (!DQ.empty())
     {
         int line = DQ.front().first.first;
-        int index = DQ.front().first.first;
+        int index = DQ.front().first.second;
         int count = DQ.front().second;
         DQ.pop_front();
+        if(count == N) {
+            break;
+        }
         if (index > N)
         {
             cout << "1\n";
             return;
         }
-        if(count >= N) break;
-        if(!visit[line][index+1]){
+        if(!visit[line][index + 1]){
             DQ.push_back({{line, index + 1}, count + 1});
             visit[line][index + 1] = true;
             visit[0][count] = true;
@@ -54,9 +56,9 @@ int main()
     {
         string tmp;
         cin >> tmp;
-        for (int j = 0; j < tmp.size(); j++)
+        for (int j =0; j < tmp.size(); j++)
         {
-            if (tmp[j] == '0') visit[i][j] = true;
+            if (tmp[j] == '0') visit[i][j+1] = true;
         }
     }
     BFS();

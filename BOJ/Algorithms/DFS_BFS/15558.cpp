@@ -1,65 +1,61 @@
-#include <iostream>
-#include <deque>
+#include<iostream>
+#include<queue>
+#include<tuple>
+ 
 using namespace std;
+ 
+int map[2][200000];
+bool Visit[2][200000];
+int n, k;
 
-bool visit[2][100000];
-int N, K;
-
-void BFS()
-{
-    deque<pair<pair<int, int>, int>> DQ;
-    DQ.push_back({{0, 0}, 0});
-    while (!DQ.empty())
-    {
-        int line = DQ.front().first.first;
-        int index = DQ.front().first.second;
-        int count = DQ.front().second;
-        visit[line][index] = true;
-        DQ.pop_front();
-        if(count == N - 1 && index <= N - 1) {
-            break;
-        }
-        if (index > N - 1)
-        {
-            cout << "1\n";
+void BFS(){
+    queue < tuple<int, int, int>>q;
+    q.push({ 0,0,0 });
+    Visit[0][0] = true;
+ 
+    while (!q.empty()) {
+        int line, x, sec;
+        tie(line, x, sec) = q.front();
+        q.pop();
+        if (x >= n) {
+            cout << 1 << '\n';
             return;
         }
-        if(!visit[line][index + 1]){
-            DQ.push_back({{line, index + 1}, count + 1});
-            visit[line][index + 1] = true;
-            visit[0][count] = true;
-            visit[1][count] = true;
+        if (map[line][x+1] != 0 && !Visit[line][x+1]) {
+            Visit[line][x + 1] = true;
+            q.push({ line,x + 1,sec + 1 });
         }
-        if(index - 1 >= 0 && !visit[line][index-1]){
-            DQ.push_back({{line, index - 1}, count + 1});
-            visit[line][index - 1] = true;
-            visit[0][count] = true;
-            visit[1][count] = true;
+        if (x - 1 > sec && map[line][x-1] != 0 && !Visit[line][x-1]) {
+            Visit[line][x - 1] = true;
+            q.push({ line,x - 1,sec + 1 });
         }
-        if(line == 0) line = 1;
-        else line = 0;
-        if(!visit[line][index + K]){
-            DQ.push_back({{line, index + K}, count + 1});
-            visit[line][index + K] = true;
-            visit[0][count] = true;
-            visit[1][count] = true;
+        if (line == 0) {
+            if (map[1][x+k] != 0 && !Visit[1][x+k]) {
+                Visit[1][x + k] = true;
+                q.push({ 1,x + k,sec + 1 });
+            }
+        }
+        if (line == 1) {
+            if (map[0][x+k] != 0 && !Visit[0][x+k]) {
+                Visit[0][x + k] = true;
+                q.push({ 0,x + k,sec + 1 });
+            }
         }
     }
     cout << "0\n";
-    return;
-}
+} 
 
-int main()
-{
-    cin >> N >> K;
-    for (int i = 0; i < 2; i++)
-    {
+int main() {
+    cin >> n >> k;
+ 
+    for (int i = 0; i < 2; i++) {
         string tmp;
         cin >> tmp;
-        for (int j =0; j < tmp.size(); j++)
-        {
-            if (tmp[j] == '0') visit[i][j] = true;
+        for (int j = 0; j < n; j++) {
+            if(tmp[j] == '0') map[i][j] = 0;
+            else map[i][j] = 1;
         }
     }
     BFS();
+    return 0;
 }

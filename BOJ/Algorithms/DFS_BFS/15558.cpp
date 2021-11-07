@@ -2,24 +2,24 @@
 #include <deque>
 using namespace std;
 
-bool visit[2][100001];
+bool visit[2][100000];
 int N, K;
 
 void BFS()
 {
     deque<pair<pair<int, int>, int>> DQ;
-    DQ.push_back({{0, 1}, 1});
-    visit[0][1] = true;
+    DQ.push_back({{0, 0}, 0});
     while (!DQ.empty())
     {
         int line = DQ.front().first.first;
         int index = DQ.front().first.second;
         int count = DQ.front().second;
+        visit[line][index] = true;
         DQ.pop_front();
-        if(count == N) {
+        if(count == N - 1 && index <= N - 1) {
             break;
         }
-        if (index > N)
+        if (index > N - 1)
         {
             cout << "1\n";
             return;
@@ -30,7 +30,7 @@ void BFS()
             visit[0][count] = true;
             visit[1][count] = true;
         }
-        if(index - 1 > 0 && !visit[line][index-1]){
+        if(index - 1 >= 0 && !visit[line][index-1]){
             DQ.push_back({{line, index - 1}, count + 1});
             visit[line][index - 1] = true;
             visit[0][count] = true;
@@ -58,7 +58,7 @@ int main()
         cin >> tmp;
         for (int j =0; j < tmp.size(); j++)
         {
-            if (tmp[j] == '0') visit[i][j+1] = true;
+            if (tmp[j] == '0') visit[i][j] = true;
         }
     }
     BFS();

@@ -20,5 +20,16 @@ int main(){
             cin >> doc >> meet;
             Vec.push_back({doc, meet});
         }
+        sort(Vec.begin(), Vec.end());
+        int Answer = 1;
+        int tmp = Vec[0].second;
+        for(int j = 1; j < Vec.size(); j++){
+            if(Vec[j].second < tmp){
+                Answer++;
+                tmp = Vec[j].second;
+                if(tmp == 1) break;
+            }
+        }
+        cout << Answer << '\n';
     }
 }

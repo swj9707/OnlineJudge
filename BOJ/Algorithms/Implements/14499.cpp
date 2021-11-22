@@ -7,9 +7,51 @@ using namespace std;
 int N, M, initx, inity, K;
 //이동 방향 : 동 1 서 2 북 3 남 4
 int MATRIX[MAX][MAX];
-int dice[DICE] = {}
+int dice[DICE] = {0,};
+int dice_index[DICE] = {1,5,3,2,4,6};
 
-int roll(int movepoint){
+
+void dice_ChgIndex(int movepoint){
+    int sub = dice_index[0];
+    if(movepoint == 1){
+
+    }
+    else if(movepoint == 2){
+
+    }
+    else if(movepoint == 3){
+
+    }
+    else if(movepoint == 4){
+
+    }
+}
+
+int chgDicePosition(int movepoint){
+    if(movepoint == 1){
+        if(initx + 1 < M){
+            initx += 1;
+            return 1;
+        }
+    }
+    else if(movepoint == 2){
+        if(initx - 1 >= 0){
+            initx -= 1;
+            return 1;
+        }
+    }
+    else if(movepoint == 3){
+        if(inity - 1 >= 0){
+            inity -= 1;
+            return 1;
+        }
+    }
+    else if(movepoint == 4){
+        if(inity + 1 < N){
+            inity += 1;
+            return 1;
+        }
+    }
     return 0;
 }
 

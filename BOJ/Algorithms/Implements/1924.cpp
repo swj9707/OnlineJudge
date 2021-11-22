@@ -4,11 +4,11 @@ using namespace std;
 
 int main(){
     int month, date;
-    cin >> month , date;
+    cin >> month >> date;
 
-    int days[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31,30, 31};
+    int days[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     int total = date;
-    for(int i = 0; i < month-1; i++){
+    for(int i = 0; i < (month-1); i++){
         total += days[i];
     }
     total = total % 7;

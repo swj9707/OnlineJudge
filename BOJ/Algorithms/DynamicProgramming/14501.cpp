@@ -1,22 +1,27 @@
 #include <iostream>
 #include <algorithm>
-
 using namespace std;
 
-int T[18],P[18],DP[18];
+int DP[16];
+int T[16];
+int P[16];
+int N;
+
+int solve(int day){
+    if(day > N + 1) return -1000000;
+    if(day == N + 1) return 0;
+    int ret = DP[day];
+    if(ret != -1) return ret;
+    ret = max(solve(day+1), solve(day + T[day]) + P[day]);
+    return ret;
+}
 
 int main(){
-    int N;
-
     cin >> N;
-    for(int i = 1; i<=N; i++){
-        cin>>T[j]>>P[j];
+    for(int i = 1; i <= N; i++){
+        cin >> T[i] >> P[i];
+        DP[i] = -1;
     }
-
-    for(int j = N ; j>0; j--){
-        if(l[j]>i-j+1) r[j] = r[j+1];
-        else r[j] = max(c[j] + r[j+l[j]],r[j+1]);
-    }
-
-    cout << r[1];
+    int answer = solve(1);
+    cout << answer << '\n';
 }

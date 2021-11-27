@@ -8,9 +8,15 @@ int main(){
     int answer = 0;
     cin >> N;
     vector<int> vec(N);
-    /*
-    5 3 7 5 -> 2(3) 3 4(3) 5 
-    */
-    for(int i = N - 1; i >= 0; i--){
+    for(int i = 0; i < N; i++) cin >> vec[i];
+    for(int i = N - 2; i >= 0; i--){
+        if(vec[i] >= vec[i + 1]){
+            while(vec[i] >= vec[i+1]){
+                vec[i] -= 1;
+                answer++;
+            }
+        }
     }
+    cout << answer << '\n';
+    return 0;
 }

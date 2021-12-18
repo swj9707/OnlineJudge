@@ -27,28 +27,30 @@ int main(){
                 N--;
             }
         }
+        int time = 0;//한 시퀸스 당 걸린 시간
+        //주의! 불가능한 경우도 있다
         for(int i = 0; i < N; i++){
             //i -> 현재 위치
             if(i + 6 < N){
-                for(int j = i + 6; j > 0; j--){
-                    if(mapData[j] == 2){//캠핑장이라면?
-                        answer += j + 1;//한시간 쉬었다 치고
+                for(int j = 6; j > 0; j--){
+                    if(mapData[i + j] == 2){//캠핑장이라면?
+                        time += j + 1;//한시간 쉬었다 치고
                         i = j;//새로운 위치 갱신
                         break;
                     }
-                    else if(mapData[j] == 3){
-
+                    else if(mapData[i + j] == 3){
+                        time + j;
+                        if(time <= 15){
+                            
+                        }
                     }
                 }
             }
-            else{//이제 거의 다온 상황
-                for(int j = i; j < N; j++){
-                    
-                }
-
+            else{//이제 거의 다온 상황 -> 휴계소가 있다고 해도 갈 이유가 있는가?
+                time = N - i - 1;
+                break;
             }
         }
-
         cout << "#" << caseNum << " " << answer <<'\n';
     }
 }

@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+#include <iostream>
+#include <vector>
+#include <queue>
+#define MAX 10001
+using namespace std;
+
+vector <int> vec[MAX];
+vector <int> check;
+bool Visit[MAX];
+int N, M;
+
+void 
+
+int main(){
+    cin >> N >> M;
+    for(int i = 0; i < M; i++){
+        int a, b;
+        cin >> a >> b;
+        vec[b].push_back(a);
+    }
+=======
 #include<iostream>
 #include<vector>
 #include<cstring>
@@ -60,4 +82,5 @@ int main() {
 	for (int i = 0; i < check.size(); i++) cout << check[i] << " ";
 	
 	return 0;
+>>>>>>> 98b5fbb32cee517c2be85e7fd0369f6f68757c60
 }

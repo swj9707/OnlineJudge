@@ -1,28 +1,31 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
 #define MAX 100001
 using namespace std;
 int Arr[MAX];
 int main(){
+    ios_base::sync_with_stdio(false); 
+    cin.tie(NULL); 
+    cout.tie(NULL);
     int N, X;
     cin >> N;
-    for(int i = 1; i <= N; i++) cin >> Arr[i];
+    vector<int> vec(N);
+    for(int i = 0; i < N; i++) cin >> vec[i];
+    sort(vec.begin(), vec.end());
     cin >> X;
     int result = 0, count = 0;
-    int start = 1, end = 2;
-    while(start < end && end <= N){
-        result = Arr[start] + Arr[end];
+    int start = 0, end = N-1;
+    while(1){
+        if(start >= end) break;
+        result = vec[start] + vec[end];
         if(result == X){
             count++;
             start++;
-            end = start + 1;
+            end--;
         }
-        else{
-            if(end != N) end++;
-            else {
-                start++;
-                end = start + 1;
-            }
-        }
+        else if(result < X) start++;
+        else end--;
     }
     cout << count << '\n';
 }

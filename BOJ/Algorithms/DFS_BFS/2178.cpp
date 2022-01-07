@@ -39,7 +39,6 @@ int main(){
             if(tmp[j] == '1') visit[i][j] = false;
             else visit[i][j] = true;
         }
-        cout << "wtf\n";
     }
     int result = BFS(0, 0);
     cout << result << '\n';

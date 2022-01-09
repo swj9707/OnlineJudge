@@ -6,7 +6,7 @@ int N, M;
 int MATRIX[MAX];
 bool visit[MAX];
 
-void DFS(int count){
+void DFS(int num, int count){
     if(count == M){
         for(int i = 0; i < M; i++){
             cout << MATRIX[i] << " ";
@@ -14,11 +14,11 @@ void DFS(int count){
         cout << '\n';
         return;
     }
-    for(int i = 1; i <= N; i++){
+    for(int i = num; i <= N; i++){
         if(!visit[i]){
             visit[i] = true;
             MATRIX[count] = i;
-            DFS(count + 1);
+            DFS(i+1, count + 1);
             visit[i] = false;
         }
     }
@@ -26,5 +26,5 @@ void DFS(int count){
 
 int main(){
     cin >> N >> M;
-    DFS(0);
+    DFS(1, 0);
 }

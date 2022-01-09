@@ -5,7 +5,6 @@ using namespace std;
 int N, M;
 int MATRIX[MAX];
 bool visit[MAX];
-
 void DFS(int count){
     if(count == M){
         for(int i = 0; i < M; i++){
@@ -15,12 +14,10 @@ void DFS(int count){
         return;
     }
     for(int i = 1; i <= N; i++){
-        if(!visit[i]){
-            visit[i] = true;
-            MATRIX[count] = i;
-            DFS(count + 1);
-            visit[i] = false;
-        }
+        visit[i] = true;
+        MATRIX[count] = i;
+        DFS(count + 1);
+        visit[i] = false;
     }
 }
 

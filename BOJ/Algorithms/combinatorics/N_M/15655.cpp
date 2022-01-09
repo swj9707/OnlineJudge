@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #define MAX 9
 using namespace std;
 
@@ -10,7 +11,7 @@ bool visit[MAX];
 void DFS(int num, int count){
     if(count == M){
         for(int i = 0; i < M; i++){
-            cout << MATRIX[i] << " ";
+            cout << DATA[MATRIX[i]] << " ";
         }
         cout << '\n';
         return;
@@ -28,5 +29,6 @@ void DFS(int num, int count){
 int main(){
     cin >> N >> M;
     for(int i = 1; i <= N; i++) cin >> DATA[i];
+    sort(DATA+1, DATA+1+N);
     DFS(1, 0);
 }

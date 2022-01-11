@@ -6,12 +6,10 @@
 
 using namespace std;
 
-
-int V, E, Start;
 int Dist[MAX];
-vector<pair<int, int>> VerTex[MAX];
+vector<pair<int, int>> edge[MAX];
 
-void Dijkstra(){
+void Dijkstra(int Start){
     priority_queue<pair<int, int>> PQ;
     PQ.push({0, Start});
     Dist[Start] = 0;
@@ -19,9 +17,10 @@ void Dijkstra(){
         int Cost = -PQ.top().first;
         int Cur = PQ.top().second;
         PQ.pop();
-        for(int i = 0; i < VerTex[Cur].size(); i++){
-            int Next = VerTex[Cur][i].first;
-            int nCost = VerTex[Cur][i].second;
+        if(Dist[Cur] < Cost) continue;
+        for(int i = 0; i < edge[Cur].size(); i++){
+            int Next = edge[Cur][i].first;
+            int nCost = edge[Cur][i].second;
             if(Dist[Next] > Cost + nCost){
                 Dist[Next] = Cost + nCost;
                 PQ.push({-Dist[Next], Next});
@@ -31,16 +30,19 @@ void Dijkstra(){
 }
 
 int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int V, E, Start;
     cin >> V >> E >> Start;
     for(int i = 0; i < E; i++){
-        int a, b, c;
-        cin >> a >> b >> c;
-        VerTex[a].push_back({b, c});
+        int u, v, w;
+        cin >> u >> v >> w;
+        edge[u].push_back({v, w});
     }
     for(int i = 1; i <= V; i++) Dist[i] = INF;
-    Dijkstra(); 
+    Dijkstra(Start); 
     for (int i = 1; i <= V; i++){
-        if (Dist[i] == INF) cout << "INF" << endl;
-        else cout << Dist[i] << endl;
+        if (Dist[i] == INF) cout << "INF" << '\n';
+        else cout << Dist[i] << '\n';
     }
 }

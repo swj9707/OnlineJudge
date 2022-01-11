@@ -13,10 +13,9 @@ void floyd_warshall()
         {
             for (int j = 1; j <= N; j++)
             {
-                if (MATRIX[j][i] != INF && MATRIX[i][k] != INF)
+                if (MATRIX[i][k] != INF && MATRIX[k][j] != INF)
                 {
-                    if (MATRIX[i][j] > MATRIX[i][k] + MATRIX[k][j])
-                        MATRIX[i][j] = MATRIX[i][k] + MATRIX[k][j];
+                    MATRIX[i][j] = min(MATRIX[i][j], MATRIX[i][k] + MATRIX[k][j]);
                 }
             }
         }
@@ -40,11 +39,11 @@ int main()
         cin >> A >> B >> C;
         if (MATRIX[A][B] > C) MATRIX[A][B] = C;
     }
-
+    floyd_warshall();
     for (int i = 1; i <= N; i++)
     {
         for (int j = 1; j <= N; j++)
-            if (i == j)
+            if (i == j || MATRIX[i][j] == INF)
                 cout << 0 << " ";
             else
                 cout << MATRIX[i][j] << " ";

@@ -2,6 +2,7 @@
 #include <queue>
 #include <vector>
 #define MAX 501
+#define INF 99999999
 using namespace std;
 
 int MATRIX[MAX][MAX];
@@ -12,7 +13,7 @@ int main(){
     int N, M;
     cin >> N >> M;
     for(int i = 1; i <= N; i++){
-        for(int j = 1; j <= N; j++) MATRIX[i][j] = -1;
+        for(int j = 1; j <= N; j++) MATRIX[i][j] = INF;
     }
     for(int i = 0; i < M; i++){
         int A, B;
@@ -21,18 +22,15 @@ int main(){
     }
     for(int k = 1; k <= N; k++){
         for(int i = 1; i <= N; i++){
-            for(int j = 1; j <= N; j++){
-                if(MATRIX[i][j] > MATRIX[i][k] + MATRIX[k][j]) MATRIX[i][j] = MATRIX[i][k] + MATRIX[k][j];
-            }
+            for(int j = 1; j <= N; j++) MATRIX[i][j] = min(MATRIX[i][j], MATRIX[i][k] + MATRIX[k][j]);
         }
     }
     int answer = 0;
     for(int i = 1; i <= N; i++){
         int count = 0;
         for(int j = 1; j <= N; j++){
-            if(MATRIX[i][j] != -1 || MATRIX[j][i] != -1) count++;
+            if(MATRIX[i][j] != INF || MATRIX[j][i] != INF) count++;
         }
-        cout << count << '\n';
         if(count == N - 1) answer++;
     }
     cout << answer << '\n';

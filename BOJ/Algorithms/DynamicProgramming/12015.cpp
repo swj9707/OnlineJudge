@@ -1,6 +1,5 @@
 #include <iostream>
-#include <vector>
-#define MAX 1001
+#define MAX 1000001
 using namespace std;
 
 int DP[MAX];
@@ -10,15 +9,12 @@ int main(){
     cin.tie(0);
     int N;
     cin >> N;
-    vector<int> data;
     int answer = 0;
-    for(int i = 0; i < N; i++){
-        int tmp;
-        cin >> tmp;
-        data.push_back(tmp);
+    for(int i = 1; i <= N; i++) cin >> Arr[i];
+    for(int i = 1; i <= N; i++){
         int maxValue = 0;
-        for(int j = 0; j < data.size(); j++){
-            if(data[i] > data[j]){
+        for(int j = 1; j <= i; j++){
+            if(Arr[i] > Arr[j]){
                 if(maxValue < DP[j]) maxValue = DP[j];
             }
         }

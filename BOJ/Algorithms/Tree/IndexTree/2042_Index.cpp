@@ -1,5 +1,5 @@
 #include <iostream>
-#define MAX 1000002
+#define MAX 1000001
 using namespace std;
 
 long long Arr[MAX * 4];
@@ -37,7 +37,8 @@ int main(){
         Arr[i] = Arr[2*i] + Arr[2*i+1];
     }
     for(int i = 0; i < M + K; i++){
-        int a, b, c;
+        int a;
+        long long b, c;
         cin >> a >> b >> c;
         if(a == 1){
             update(b + s - 1, c - Arr[b + s - 1]);

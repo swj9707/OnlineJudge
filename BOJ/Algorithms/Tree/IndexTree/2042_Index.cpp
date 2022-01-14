@@ -29,13 +29,9 @@ int main(){
     int N, M, K;
     cin >> N >> M >> K;
     int s = 1;
-    while(s < N){
-        s *= 2;
-    }
+    for(s ; s < N; s <<= 2);
     for(int i = 0; i < N; i++) cin >> Arr[i+s];
-    for(int i = s - 1; i >= 1; i--){
-        Arr[i] = Arr[2*i] + Arr[2*i+1];
-    }
+    for(int i = s - 1; i >= 1; i--) Arr[i] = Arr[2*i] + Arr[2*i+1];
     for(int i = 0; i < M + K; i++){
         int a;
         long long b, c;

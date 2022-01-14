@@ -43,5 +43,6 @@ int main(){
         edge[dst].push_back({src, 1});
     }
     Dijkstra(a);
-    cout << Dist[b] << '\n';   
+    if(Dist[b] == INF) cout << "-1\n";
+    else cout << Dist[b];   
 }

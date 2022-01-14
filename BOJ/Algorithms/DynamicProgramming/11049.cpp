@@ -1,5 +1,6 @@
 #include <iostream>
 #define MAX 501
+#define INF 987654321
 using namespace std;
 
 int DP[MAX][MAX];

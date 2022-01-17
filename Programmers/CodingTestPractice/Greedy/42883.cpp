@@ -7,8 +7,8 @@ using namespace std;
 
 string solution(string number, int k){
     string answer = "";
-    int maxSize = number.size() - k;
-    int start = 0;
+    int maxSize = number.length() - k;
+    
     return answer;
 }
 

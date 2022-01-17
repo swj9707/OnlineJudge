@@ -5,35 +5,19 @@
 
 using namespace std;
 
-bool desc(int a, int b)
-{
-    return a > b;
-}
-
-int solution(vector<int> people, int limit)
-{
+int solution(vector<int> people, int limit) {
     int answer = 0;
-    sort(people.begin(), people.end(), desc);
-    while (!people.empty())
-    {
-        if (people.size() > 1)
-        {
-            if (people[0] + people[people.size() - 1] <= 100)
-            {
-                answer++;
-                people.pop_back();
-                people.erase(people.begin());
-            }
-            else
-            {
-                answer++;
-                people.erase(people.begin());
-            }
+    sort(people.begin(), people.end());
+    int left = 0, right = people.size()-1;
+    while(left <= right){
+        if(people[left] + people[right] < limit){
+            left++;
+            right--;
         }
         else{
-            answer++;
-            people.erase(people.begin());
+            right--;
         }
+        answer++;
     }
     return answer;
 }

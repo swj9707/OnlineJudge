@@ -1,10 +1,13 @@
-#include <string>
-#include <vector>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
+vector<vector<bool>> reportList;
+map<string, int> user;
+vector<int> numberOfReport;
 
 vector<int> solution(vector<string> id_list, vector<string> report, int k) {
     vector<int> answer;
+
     return answer;
 }
 

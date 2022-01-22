@@ -7,3 +7,4 @@ def Rev(x):
 X, Y = map(int, input().split())
 Z = Rev(X) + Rev(Y)
 print(Rev(Z))
+#commit test

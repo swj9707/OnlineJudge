@@ -22,6 +22,7 @@ int main(){
         else{
             PQ.push(classes[i].second);
         }
+        cout << PQ.top() << " " << PQ.size() <<'\n';
     }
 
     cout << PQ.size() << '\n';

@@ -8,22 +8,20 @@ using namespace std;
 int MATRIX[6][6];
 int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
-set <string> result;
+set <int> result;
 
-void BFS(int X, int Y){
-    deque<pair<string, pair<int, int>>> DQ;
-    DQ.push_back({to_string(MATRIX[X][Y]), {X, Y}});
-    while(!DQ.empty()){
-        string data = DQ.front().first;
-        int x = DQ.front().second.first;
-        int y = DQ.front().second.second;
-        if(data.length() == 6)
-        for(int i = 0; i < 4; i++){
-            int nx = x + dx[i];
-            int ny = y + dy[i];
+void DFS(int X, int Y, int data, int count){
+    if(count == 5) {
+        result.insert(data);
+        return;
+    }
+    for(int i = 0; i < 4; i++){
+        int nx = X + dx[i];
+        int ny = Y + dy[i];
+        if(nx >= 1 && nx <= 5 && ny >= 1 && ny <= 5){
+            DFS(nx, ny, data * 10 + MATRIX[nx][ny], count + 1);
         }
     }
-    
 }
 
 int main(){
@@ -32,5 +30,8 @@ int main(){
     for(int i = 1; i <= 5; i++){
         for(int j = 1; j <= 5; j++) cin >> MATRIX[i][j];
     }
-
+    for(int i = 1; i <= 5; i++){
+        for(int j = 1; j <= 5; j++) DFS(i, j, MATRIX[i][j], 0);
+    }
+    cout << result.size() << '\n';
 }

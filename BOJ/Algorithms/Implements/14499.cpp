@@ -78,7 +78,7 @@ int main(){
     for(int i = 1; i <= K; i++) cin >> movePointList[i];
     for(int i = 1; i <= K; i++){
         if(chgDicePosition(i) == 1){
-
+            
         }
     }
 }

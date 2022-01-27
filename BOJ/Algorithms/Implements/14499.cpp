@@ -7,6 +7,7 @@ using namespace std;
 int N, M, initx, inity, K;
 //이동 방향 : 동 1 서 2 북 3 남 4
 int MATRIX[MAX][MAX];
+int movePointList[1001];
 int dice[DICE] = {0,};
 int dice_index[DICE] = {1,5,3,2,4,6};
 
@@ -61,8 +62,5 @@ int main(){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++) cin >> MATRIX[i][j];
     }
-    int movepoint;
-    for(int i = 0; i < K; i++){
-        cin >> movepoint;
-    }
+    for(int i = 1; i <= K; i++) cin >> movePointList[i];
 }

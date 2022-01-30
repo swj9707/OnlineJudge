@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <iostream>
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
@@ -15,4 +16,8 @@ string solution(vector<string> participant, vector<string> completion) {
         }
     }
     return answer;
+}
+
+int main(){
+    cout << solution({"leo", "kiki", "eden"}, {"eden", "kiki"}) << '\n';
 }

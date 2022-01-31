@@ -1,46 +1,52 @@
 #include <iostream>
 #include <deque>
-#include <tuple>
-#define MAX 100
+#define MAX 101
 using namespace std;
 
-int dx[4] = {1, -1, 0, 0};
-int dy[4] = {0, 0, 1, -1};
-int N, M;
-
+int M, N;
 int MATRIX[MAX][MAX];
 bool Visit[MAX][MAX];
+int dx[4] = {0, 0, 1, -1};
+int dy[4] = {1, -1, 0, 0};
 
 void BFS(){
-    deque<tuple<int, int, int>> DQ;
-    DQ.push_back({0, 0, 0});
+    deque<pair<int, pair<int, int>>> DQ;//count, X, Y
+    DQ.push_back({0,{1,1}});
+    Visit[1][1] = true;
     while(!DQ.empty()){
-        int X, Y, count;
-        tie(X, Y, count) = DQ.front();
-        Visit[X][Y] = true;
-        if(X == N-1 && Y == M-1){
+        int X = DQ.front().second.first;
+        int Y = DQ.front().second.second;
+        int count = DQ.front().first;
+        if(X == M && Y == N){
             cout << count << '\n';
             return;
         }
+        Visit[X][Y] = true;
         DQ.pop_front();
         for(int i = 0; i < 4; i++){
             int nx = X + dx[i];
             int ny = Y + dy[i];
-            if(nx >= 0 && nx < N && ny >= 0 && ny < M && !Visit[nx][ny]){
+            if(nx >= 1 && nx <= M && ny >= 1 && ny <= N && !Visit[nx][ny]){
+                if(MATRIX[nx][ny] == 1) DQ.push_back({count+1, {nx,ny}});
+                else DQ.push_back({count, {nx,ny}});
                 Visit[nx][ny] = true;
-                if(MATRIX[nx][ny] == 0) DQ.push_back({nx, ny, count});
-                else DQ.push_back({nx, ny, count + 1});
             }
         }
     }
 }
 
 int main(){
-    cin >> N >> M;
-    for(int i = 0; i < N; i++){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cin >> M >> N;
+    for(int i = 1; i <= N; i++){
+        string tmp;
+        cin >> tmp;
         for(int j = 0; j < M; j++){
-            cin >> MATRIX[i][j];
+            if(tmp[j] != '0') MATRIX[i][j+1] = 1;
         }
     }
+    
+
     BFS();
 }

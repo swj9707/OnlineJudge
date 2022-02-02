@@ -1,19 +1,37 @@
 #include <string>
 #include <vector>
-#include <iostream>
+
 using namespace std;
 
 int solution(string name) {
     int answer = 0;
-    for(int i = 0; i < name.size(); i++){
-
-        cout << name[i] << " " << int(name[i]) - 65 << " ";
+    int len = name.length();
+    int idx = 0;
+    string tmp(len, 'A');
+    while(name != tmp){
+        tmp[idx] = name[idx];
+        answer += min(name[idx] - 'A', 'Z' + 1 - name[idx]);
+        if(name == tmp) break;
+        int left = idx, right = idx;
+        int left_count = 0, right_count = 0;
+        while(tmp[left] == name[left]){
+            left--;
+            left_count++;
+            if(left < 0) left = len - 1;
+        }
+        while(tmp[right] == name[right]){
+            right;
+            right_count++;
+            if(right >= len) right = 0;
+        }
+        if(left_count > right_count) {
+            idx = right;
+            answer += right_count;
+        }
+        else {
+            idx = left;
+            answer += left_count;
+        }
     }
-    cout << '\n';
     return answer;
-}
-
-int main(){
-    cout << solution("JEROEN") << '\n';
-    cout << solution("JAN") << '\n';
 }

@@ -1,22 +1,29 @@
 #include <string>
 #include <vector>
-#include <set>
 #include <unordered_set>
 using namespace std;
 
 int solution(int n, vector<int> lost, vector<int> reserve) {
-    unordered_set<int> l(lost.begin(), lost.end());
-    set<int> r;
-    unordered_set<int> inter;
-    for(auto & x : reserve){
-        if(l.find(x) == l.end()) r.insert(x);
-        else inter.insert(x);
+    unordered_set<int> reserveSet(reserve.begin(), reserve.end());
+    unordered_set<int> lostSet(lost.begin(), lost.end());
+    for(auto & X : lostSet){
+        if(reserveSet.find(X)!= reserveSet.end()){
+            reserveSet.erase(X);
+        }
     }
-    for(auto & x : inter) l.erase(x);
-    for(auto & x : r) {
-        if(l.find(x - 1) != l.end()) l.erase(x-1);
-        else if(l.find(x+1) != l.end()) l.erase(x+1);
+    for(auto & X : reserveSet){
+        if(lostSet.find(X) != lostSet.end()){
+            lostSet.erase(X);
+        }
     }
-
-    return n - l.size();
+    for(auto & X : reserveSet){
+        if(lostSet.find(X-1) != lostSet.end()){
+            lostSet.erase(X-1);
+        }
+        else if(lostSet.find(X+1) != lostSet.end()){
+            lostSet.erase(X+1);
+        }
+    }
+    
+    return n - lostSet.size();
 }

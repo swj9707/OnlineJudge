@@ -2,8 +2,6 @@
 #include <deque>
 #include <vector>
 #include <cstring>
-#include <stdlib.h>
-#include <windows.h>
 #define MAX 300
 using namespace std;
 
@@ -14,20 +12,6 @@ int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
 
 int N, M;
-
-void initSet() {
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-}
-void printMatrix()
-{
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < M; j++)
-            cout << MATRIX[i][j] << " ";
-        cout << "\n";
-    }
-}
 
 void BFS(int Y, int X)
 {
@@ -77,12 +61,16 @@ void Melt()
                     if (tmp[y][x] == 0)
                         count += 1;
                 }
-                MATRIX[i][j] -= count;
-                if (MATRIX[i][j] < 0)
-                    MATRIX[i][j] = 0;
+                if(MATRIX[i][j] - count <= 0) MATRIX[i][j] = 0;
+                else MATRIX[i][j] -= count;
             }
         }
     }
+}
+
+void initSet() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 }
 
 int main()
@@ -95,24 +83,34 @@ int main()
             cin >> MATRIX[i][j];
     }
     int Answer = 0;
+    bool check = false; 
     while (true)
     {
         memset(Visit, false, sizeof(Visit));
         int SearchCount = 0;
-        Melt();
-        Answer += 1;
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < M; j++)
             {
                 if (!Visit[i][j] && MATRIX[i][j] != 0)
                 {
-                    BFS(i, j);
                     SearchCount += 1;
+                    if(SearchCount == 2){
+                        check = true;
+                        break;
+                    }
+                    BFS(i, j);
                 }
             }
+            if(SearchCount == 2) break;
         }
-        if(SearchCount > 1) break;
+        if(check) break;
+        if(SearchCount == 0){
+            Answer = 0;
+            break;
+        }
+        Melt();
+        Answer++;
     }
     cout << Answer << '\n';
 }

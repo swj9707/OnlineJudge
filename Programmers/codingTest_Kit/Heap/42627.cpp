@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 int solution(vector<vector<int>> jobs) {

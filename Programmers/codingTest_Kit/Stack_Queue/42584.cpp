@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 #include <string>
->>>>>>> ececc422fcef5f16a52e2c3d25f30ffc678f4461
 #include <vector>
 #include <stack>
 using namespace std;

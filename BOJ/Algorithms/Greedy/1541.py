@@ -1,6 +1,4 @@
-import sys
-
-input = lambda : sys.stdin.readline().rstrip()
+import sys ; input = lambda : sys.stdin.readline().rstrip()
 
 a = input().split('-')
 
@@ -17,4 +15,5 @@ result = data[0]
 
 for i in range(1, len(data)):
     result -= data[i]
+
 print(result)

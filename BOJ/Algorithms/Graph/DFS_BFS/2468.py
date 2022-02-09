@@ -14,10 +14,9 @@ def BFS(X, Y, safeArea):
             nx = x + dx[i]
             ny = y + dy[i]
 
-            if 0 <= nx < N and 0 <= ny < N:
-                if matrix[nx][ny] >= safeArea and visit[nx][ny] == False:
-                    visit[nx][ny] = True
-                    Q.append((nx, ny))
+            if 0 <= nx < N and 0 <= ny < N and visit[nx][ny] == False and matrix[nx][ny] >= safeArea:
+                visit[nx][ny] = True
+                Q.append((nx, ny))
 
 N = int(input())
 matrix = [list(map(int, input().split())) for i in range(N)]
@@ -37,4 +36,3 @@ for safeArea in range(minValue, maxValue+1):
     if tmp > safeArea_Max:
         safeArea_Max = tmp
 print(safeArea_Max)
-

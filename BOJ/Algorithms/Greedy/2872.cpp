@@ -9,11 +9,18 @@ int main(){
     int N;
     cin >> N;
     vector<int> vec(N);
+    vector<int> tmp;
     int answer = 0;
-    for(int i = 0; i < N; i++) cin >> vec[i];
-    int maxIndex = max_element(vec.begin(), vec.end()) - vec.begin();
-    for(int i = maxIndex+1; i < N; i++){
-        answer = max(answer, vec[i]);
+    for(int i = 0; i < N; i++) {
+        cin >> vec[i];
     }
+    int maxValue = N;
+    for(int i = N -1 ; i >= 0; i--){
+        if(vec[i] == maxValue){
+            tmp.push_back(maxValue);
+            maxValue -= 1;
+        }
+    }
+    answer = N - tmp.size();
     cout << answer << '\n';
 }

@@ -36,7 +36,7 @@ void BFS(vector<vector<int>> & vec){
     answer = max(answer, count);
 }
 
-void DFS(vector<vector<int>> vec, int x, int y, int count){
+void Find(vector<vector<int>> vec, int x, int y, int count){
     vec[x][y] = 1;
     if(count == 0){
         BFS(vec);
@@ -44,7 +44,7 @@ void DFS(vector<vector<int>> vec, int x, int y, int count){
     }
     for(int i = x ; i < N ; i++){
         for(int j = 0; j < M; j++){
-            if(vec[i][j] == 0) DFS(vec, i, j, count -1);
+            if(vec[i][j] == 0) Find(vec, i, j, count -1);
         }
     }
 }
@@ -61,7 +61,7 @@ int main(){
     }
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++){
-            if(vec[i][j] == 0) DFS(vec, i, j, 2);
+            if(vec[i][j] == 0) Find(vec, i, j, 2);
         }
     }
     cout << answer << '\n';

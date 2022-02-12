@@ -6,7 +6,6 @@ using namespace std;
 int dx[4] = {0,0,1,-1};
 int dy[4] = {1,-1,0,0};
 int N, M;
-int MATRIX[MAX][MAX];
 int answer = 0;
 void BFS(vector<vector<int>> & vec){
     queue<pair<int, int>> Q;

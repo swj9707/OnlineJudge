@@ -1,25 +1,29 @@
-import sys; input = lambda : sys.stdin.readline().rstrip()
+def solve(T):
+    N = T[0]
+    numbers = sorted(T[1:])
+    zeros = numbers.count(0)
+    n, m = '',''
 
-while True:
-    dataList = list(map(str, input().split()))
-    if dataList[0] == '0' and len(dataList) == 1:
-        break
-    dataList = sorted(dataList[1:])
-    num_of_zero = dataList.count('0')
-    dataList = dataList[num_of_zero:]
-    first, second = '', ''
-    first_zero, second_zero = 0, 0
-    for i in range(len(dataList)):
-        if i % 2 != 0: first += dataList[i]
-        else : second += dataList[i]
+    for i in range(zeros,len(numbers)):
+        if (zeros-i)%2==0: n+= str(numbers[i])
+        else: m+= str(numbers[i])
+    new_n = n
+    new_m = m
+    for i in range(zeros):
+        if len(n)==len(m):
+            if i%2 == 0: new_n = new_n[0]+'0'+new_n[1:]
+            else : new_m = new_m[0]+'0'+new_m[1:]
+        else: 
+            if i%2 == 0: new_m = new_m[0]+'0'+ new_m[1:]
+            else : new_n = new_n[0]+'0'+new_n[1:]
 
-    for i in range(num_of_zero):
-        if len(first) == len(second):
-            if i % 2 == 0 : first_zero += 1
-            else: second_zero += 1
-        else:
-            if i % 2 == 0 : second_zero += 1
-            else: first_zero += 1
-    first = first[0] + '0' * first_zero + first[1:]
-    second = second[0] + '0' * second_zero + second[1:]
-    print(int(first) + int(second))
+    return int(new_n)+int(new_m)
+    
+if __name__=='__main__':
+    T = []
+    while True:
+        case = list(map(int,input().split()))
+        if case==[0]: break
+        T.append(case)
+    for t in T:
+        print(solve(t))

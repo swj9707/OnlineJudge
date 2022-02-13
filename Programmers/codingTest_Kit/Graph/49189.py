@@ -1,6 +1,3 @@
-from ftplib import MAXLINE
-
-
 def BFS(n, adjMatrix, node):
     from collections import deque
     maxLength = 0

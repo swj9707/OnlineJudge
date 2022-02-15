@@ -1,17 +1,24 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
+
 using namespace std;
 
-int main(){
-    int N;
-    cin >> N;
-    vector<int> vec(N);
-    for(int i = 0; i < N; i++){
-        cin >> vec[i];
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int T;
+    cin >> T;
+
+    int arr[10001] = {0};
+
+    for(int i = 0 ; i < T; i++){
+        int a;
+        cin >> a;
+        arr[a] += 1;
     }
-    sort(vec.begin(), vec.end());
-    for(int i = 0; i < N; i++){
-        cout << vec[i] << '\n';
-    }
+    for(int i = 1 ; i <= 10000; i++)
+        for (int j = 0; j < arr[i]; j++)
+            cout << i << "\n";
 }

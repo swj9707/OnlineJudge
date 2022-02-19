@@ -1,0 +1,5 @@
+import sys; input = lambda : sys.stdin.readline().rstrip()
+N, K = map(int, input().split())
+dataList = sorted(list(map(int, input().split())))
+answer = sum(list(dataList[i] * min(i, K) for i in range(1, N)))
+print(answer)

@@ -1,6 +1,4 @@
-#include <string>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 
 using namespace std;
 

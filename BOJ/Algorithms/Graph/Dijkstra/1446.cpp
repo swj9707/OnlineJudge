@@ -1,8 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-#define MAX 13
-#define INF 987654321
+#define MAX 100001
 using namespace std;
 
 int Dist[MAX];
@@ -13,12 +12,16 @@ int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cin >> N >> D;
+    for(int i = 0; i < MAX; i++) Dist[i] = i;
     for(int i = 0; i < N; i++){
         int src, dst, cost;
         cin >> src >> dst >> cost;
+        if(dst - src <= cost) continue;
+        if(dst > D) continue;
         edge[src].push_back({dst, cost});
     }
     int before;
+    Dist[0] = 0;
     for(int i = 0; i <= D; i++){
         if(i == 0) before = -1;
         else before = Dist[i-1];

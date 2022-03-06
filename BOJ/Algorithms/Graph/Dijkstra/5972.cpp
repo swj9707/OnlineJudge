@@ -10,10 +10,11 @@ int Dist[MAX];
 
 void Dijkstra(){
     fill_n(Dist, MAX, INF);
-    priority_queue<pair<int, int>> PQ;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> PQ;
     PQ.push({0, 1});
+    Dist[1] = 0;
     while(!PQ.empty()){
-        int cost = -PQ.top().first;
+        int cost = PQ.top().first;
         int Cur = PQ.top().second;
         PQ.pop();
         if(Dist[Cur] < cost) continue;
@@ -22,7 +23,7 @@ void Dijkstra(){
             int nCost = edge[Cur][i].second + cost;
             if(Dist[next] > nCost){
                 Dist[next] = nCost;
-                PQ.push({-nCost, next});
+                PQ.push({nCost, next});
             }
         }
     }

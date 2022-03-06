@@ -2,17 +2,14 @@
 #include <queue>
 #include <vector>
 #define MAX 10001
-#define INF 9876543
+#define INF 98765432
 using namespace std;
 
 int Dist[MAX];
 vector<pair<int, int>> edge[MAX];
-void initSet(){
-    for(int i = 0; i < MAX; i++) Dist[i] = INF;
-    for(int i = 0; i < MAX; i++) edge[i].clear();
-}
 
 void Dijkstra(int N, int C){
+    fill_n(Dist, MAX, INF);
     Dist[C] = 0;
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> PQ;
     PQ.push({0, C});
@@ -45,7 +42,7 @@ int main(){
     cin.tie(0);
     int TestCase; cin >> TestCase;
     while(TestCase--){
-        initSet();
+        for(int i = 0; i < MAX; i++) edge[i].clear();
         int N, D, C;
         cin >> N >> D >> C;
         for(int i = 0; i < D; i++){

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #define MAX 100001
 #define MAXVALUE 1000000001
 using namespace std;
@@ -16,7 +15,7 @@ int init(int start, int end, int node, bool maximum)
         else
             return minTree[node] = arr[start];
     }
-    int mid = start + (end - start) / 2;
+    int mid = (start + end) / 2;
     if (maximum)
         return maxTree[node] = max(init(start, mid, 2 * node, maximum), init(mid + 1, end, 2 * node + 1, maximum));
     return minTree[node] = min(init(start, mid, 2 * node, maximum), init(mid + 1, end, 2 * node + 1, maximum));

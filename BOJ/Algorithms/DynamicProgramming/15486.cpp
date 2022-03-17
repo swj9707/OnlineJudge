@@ -1,27 +1,22 @@
 #include <iostream>
 #include <algorithm>
+#define ll long long
+#define MAX 1500001
 using namespace std;
 
-int DP[16];
-int T[16];
-int P[16];
+ll DP[MAX];
+int T[MAX];
+int P[MAX];
 int N;
-
-int solve(int day){
-    if(day > N + 1) return -1000000;
-    if(day == N + 1) return 0;
-    int ret = DP[day];
-    if(ret != -1) return ret;
-    ret = max(solve(day+1), solve(day + T[day]) + P[day]);
-    return ret;
-}
 
 int main(){
     cin >> N;
     for(int i = 1; i <= N; i++){
         cin >> T[i] >> P[i];
-        DP[i] = -1;
     }
-    int answer = solve(1);
-    cout << answer << '\n';
+    for(int i = N; i >= 1; i--){
+        if(i + T[i] > N+1) DP[i] = DP[i+1];
+        else DP[i] = max(DP[i+1], P[i] + DP[i + T[i]]);
+    }
+    cout << DP[1] << '\n';
 }

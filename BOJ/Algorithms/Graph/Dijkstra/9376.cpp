@@ -10,21 +10,20 @@ int Dist[3][MAX][MAX];
 int dx[4] = {0,0,1,-1};
 int dy[4] = {1,-1,0,0};
 vector<pair<int, int>> prisoner;
-vector<pair<int, int>> doors;
 
 void init(){
 	prisoner.clear();
 	for(int i = 0; i < MAX; i++){
 		fill_n(MATRIX, MAX, '.');
 	}
+}
+
+void Dijkstra(int pos,int startX, int startY, int N, int M){
 	for(int i = 0; i < 3; i++){
 		for(int j = 0; j < MAX; j++){
 			fill_n(Dist[i][j], MAX, INF);
 		}
 	}
-}
-
-void Dijkstra(int pos,int startX, int startY, int N, int M){
 	priority_queue<pair<int, pair<int, int>>> PQ;
 	PQ.push({0, {startX, startY}});
 	Dist[pos][startX][startY] = 0;
@@ -46,7 +45,6 @@ void Dijkstra(int pos,int startX, int startY, int N, int M){
 			}
 		}
 	}
-
 }
 
 int main(){
@@ -60,12 +58,14 @@ int main(){
 			for(int j = 1; j <= M; j++) {
 				cin >> MATRIX[i][j];
 				if(MATRIX[i][j] == '$') prisoner.push_back({i, j});
-				else if(MATRIX[i][j] == '#') doors.push_back({i, j});
 			}
 		}
 		Dijkstra(0, 0, 0, N, M);
 		Dijkstra(1, prisoner[0].first, prisoner[0].second, N, M);
 		Dijkstra(2, prisoner[1].first, prisoner[1].second, N, M);
+		for(int i = 0; i <= N; i++){
+			for(int j = 0; j <)
+		}
 	}
 
 }

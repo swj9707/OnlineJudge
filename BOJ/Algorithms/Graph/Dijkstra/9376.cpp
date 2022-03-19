@@ -1,148 +1,71 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <queue>
-#include <functional>
 #define MAX 101
-#define INF 98765
+#define INF 987654
 using namespace std;
 
-int dx[4] = {0, 0, 1, -1};
-int dy[4] = {1, -1, 0, 0};
-
-typedef struct
-{
-	int y, x;
-}Dir;
-
-Dir moveDir[4] = { { 1, 0 },{ -1, 0 },{ 0, 1 },{ 0, -1 } };
-
 char MATRIX[MAX][MAX];
+int Dist[3][MAX][MAX];
+int dx[4] = {0,0,1,-1};
+int dy[4] = {1,-1,0,0};
 vector<pair<int, int>> prisoner;
+vector<pair<int, int>> doors;
 
+void init(){
+	prisoner.clear();
+	for(int i = 0; i < MAX; i++){
+		fill_n(MATRIX, MAX, '.');
+	}
+	for(int i = 0; i < 3; i++){
+		for(int j = 0; j < MAX; j++){
+			fill_n(Dist[i][j], MAX, INF);
+		}
+	}
+}
 
-int main(void)
-{
-	ios_base::sync_with_stdio(0);
+void Dijkstra(int pos,int startX, int startY, int N, int M){
+	priority_queue<pair<int, pair<int, int>>> PQ;
+	PQ.push({0, {startX, startY}});
+	Dist[pos][startX][startY] = 0;
+	while(!PQ.empty()){
+		int cost = -PQ.top().first;
+		int X = PQ.top().second.first;
+		int Y = PQ.top().second.second;
+		PQ.pop();
+		if(Dist[pos][X][Y] < cost) continue;
+		for(int i = 0; i < 4; i++){
+			int nx = X + dx[i];
+			int ny = Y + dy[i];
+			if(nx >= 0 && nx <= N && ny >= 0 && ny <= M && MATRIX[nx][ny] != '*'){
+				if(MATRIX[nx][ny] == '#') cost++;
+				if(Dist[pos][nx][ny] > cost){
+					PQ.push({cost, {nx, ny}});
+					Dist[pos][nx][ny] = cost;
+				}
+			}
+		}
+	}
+
+}
+
+int main(){
+	ios::sync_with_stdio(0);
 	cin.tie(0);
 	int T; cin >> T;
-    while(T--){
-        int h, w; cin >> h >> w;
-        for(int i = 1; i <= h; i++){
-            for(int j = 1; j <= w; j++){
-                cin >> MATRIX[i][j];
-                if(MATRIX[i][j] == '$') prisoner.push_back({i, j});
-            }
-        }
-    }
-
-	for (int t = 0; t < T; t++)
-	{
-		int H, W;
-		cin >> H >> W;
-
-		string room[MAX];
-		// 위 아래 . 으로 채우기
-		for (int i = 0; i <= W + 1; i++)
-		{
-			room[0].push_back('.');
-			room[H + 1].push_back('.');
-		}
-
-		vector<pair<int, int>> prisoner;
-		prisoner.push_back({ 0, 0 }); // 상근이
-
-		for (int i = 1; i <= H; i++)
-		{
-			cin >> room[i];
-
-			// 마찬가지로 양 끝 .으로 채우기
-			room[i] = '.' + room[i];
-			for (int j = 1; j <= W; j++)
-			{
-				if (room[i][j] == '$')
-					prisoner.push_back({ i, j });
-			}
-			room[i].push_back('.');
-		}
-
-		int distance[3][MAX][MAX];
-		for (int i = 0; i < 3; i++)
-		{
-			// {거리, {죄수 좌표}}
-			priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
-			for (int j = 0; j <= H + 1; j++)
-			{
-				for (int k = 0; k <= W + 1; k++)
-				{
-					distance[i][j][k] = INF;
-				}
-			}
-
-			pq.push({ 0,{ prisoner[i] } });
-			distance[i][prisoner[i].first][prisoner[i].second] = 0;
-
-			bool visited[MAX][MAX] = { false, };
-			while (!pq.empty())
-			{
-				int y = pq.top().second.first;
-				int x = pq.top().second.second;
-				pq.pop();
-
-				for (int j = 0; j < 4; j++)
-				{
-					int nextY = y + moveDir[j].y;
-					int nextX = x + moveDir[j].x;
-
-					if (0 <= nextY && nextY <= H + 1 && 0 <= nextX && nextX <= W + 1)
-					{
-						if (visited[nextY][nextX] || room[nextY][nextX] == '*')
-						{
-							continue;
-						}
-
-						int nextDistance = distance[i][y][x];
-						if (room[nextY][nextX] == '#')
-						{
-							nextDistance++;
-						}
-
-						if (distance[i][nextY][nextX] > nextDistance)
-						{
-							distance[i][nextY][nextX] = nextDistance;
-							visited[nextY][nextX] = true;
-							pq.push({ nextDistance,{ nextY, nextX } });
-						}
-					}
-				}
+	while(T--){
+		init();
+		int N, M; cin >> N >> M;
+		for(int i = 1; i <= N; i++){
+			for(int j = 1; j <= M; j++) {
+				cin >> MATRIX[i][j];
+				if(MATRIX[i][j] == '$') prisoner.push_back({i, j});
+				else if(MATRIX[i][j] == '#') doors.push_back({i, j});
 			}
 		}
-
-		long long result = INF;
-		for (int i = 1; i <= H; i++)
-		{
-			for (int j = 1; j <= W; j++)
-			{
-				if (room[i][j] != '*')
-				{
-					long long total = 0;
-					for (int k = 0; k < 3; k++)
-					{
-						total += distance[k][i][j];
-					}
-
-					/*
-					단 한번만 문을 열면 되지만
-					세번 연다고 계산이 되어 있으므로
-					-2를 해준다
-					*/
-					total -= 2 * (room[i][j] == '#');
-					result = min(result, total);
-				}
-			}
-		}
-
-		cout << result << "\n";
+		Dijkstra(0, 0, 0, N, M);
+		Dijkstra(1, prisoner[0].first, prisoner[0].second, N, M);
+		Dijkstra(2, prisoner[1].first, prisoner[1].second, N, M);
 	}
-	return 0;
+
 }

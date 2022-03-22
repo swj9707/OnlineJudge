@@ -10,21 +10,21 @@ ll tree[4 * MAX];
 ll init(int start, int end, int node){
     if(start == end) return tree[node] = arr[start];
     int mid = (start + end) / 2;
-    return tree[node] = init(start, mid, node * 2) * init(mid + 1, end, node * 2 + 1); 
+    return tree[node] = (init(start, mid, node * 2) % MOD) * (init(mid + 1, end, node * 2 + 1) % MOD); 
 }
 
 ll mult(int start, int end, int left, int right, int node){
     if(left > end || right < start) return 1;
     if(left <= start && end <= right) return tree[node];
     int mid = (start+end)/ 2;
-    return mult(start, mid, left, right, node * 2) * mult(mid + 1, end, left, right, node * 2 + 1);
+    return (mult(start, mid, left, right, node * 2) % MOD) * (mult(mid + 1, end, left, right, node * 2 + 1) % MOD);
 }
 
 ll update(int start, int end, int node, int index, ll diff){
     if(index < start || index > end) return tree[node];
     if(start == end) return tree[node] = diff;
     int mid = (start + end) / 2;
-    return tree[node] = update(start, mid, node * 2, index, diff) * update(mid+1, end, node * 2 + 1, index, diff);
+    return tree[node] = (update(start, mid, node * 2, index, diff) % MOD) * (update(mid+1, end, node * 2 + 1, index, diff) % MOD);
 }
 
 int main(){
@@ -40,7 +40,7 @@ int main(){
             int index = b - 1;
             update(0, N - 1, 1, index, c);
         }
-        else{
+        else if (a == 2){
             cout << mult(0, N - 1, b-1, c-1, 1) % MOD << '\n';
         }
     }

@@ -3,8 +3,8 @@
 #include <vector>
 #include <set>
 #include <algorithm>
-#define MAX 2010
-#define INF 987654
+#define MAX 2001
+#define INF 98765432
 using namespace std;
 
 vector<pair<int, int>> edge[MAX];
@@ -13,16 +13,19 @@ int Dist_S[MAX];
 int Dist_G[MAX];
 int Dist_H[MAX];
 void init(){
-    for(int i = 0; i < MAX; i++) edge[i].clear();
-    for(int i = 0; i < MAX; i++) Dist_S[i] = INF;
-    for(int i = 0; i < MAX; i++) Dist_G[i] = INF;
-    for(int i = 0; i < MAX; i++) Dist_H[i] = INF;
+    for(int i = 0; i < MAX; i++) {
+        edge[i].clear();
+        Dist_S[i] = INF;
+        Dist_G[i] = INF;
+        Dist_H[i] = INF;
+    }
     candidate.clear();
 }
 
 void Dijkstra(int start, int *Dist){
     priority_queue<pair<int, int>> PQ;
     PQ.push({0, start});
+    Dist[start] = 0;
     while(!PQ.empty()){
         int cost = -PQ.top().first;
         int current = PQ.top().second;
@@ -59,10 +62,8 @@ int main(){
         Dijkstra(s, Dist_S);
         Dijkstra(g, Dist_G);
         Dijkstra(h, Dist_H);
-        int Dist_GH = Dist_G[h];
         for(auto i : candidate){
-            if(Dist_S[i] == Dist_S[g] + Dist_G[h] + Dist_H[i]) cout << i << " ";
-            else if (Dist_S[i] == Dist_S[h] + Dist_G[h] + Dist_G[i]) cout << i << " ";
+            if(Dist_S[i] == Dist_S[g] + Dist_G[h] + Dist_H[i] || Dist_S[i] == Dist_S[h] + Dist_G[h] + Dist_G[i] ) cout << i << " ";
         }
         cout << '\n';
     }

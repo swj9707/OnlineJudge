@@ -1,5 +1,5 @@
 #include <iostream>
-#include <deque>
+#include <queue>
 #include <cstring>
 #define MAX 51
 using namespace std;
@@ -12,26 +12,27 @@ int dy[4] = {0, 0, 1, -1};
 void clear(int N, int M){
     for(int i = 1; i <= N; i++){
         for(int j = 1; j <= M; j++){
-            Visit[i][j] = 0;
+            Visit[i][j] = -1;
         }
     }
 }
 
 int BFS(int x, int y, int N, int M){
-    deque<pair<int, int>> DQ;
-    DQ.push_back({x, y});
+    queue<pair<int, int>> Q;
+    Visit[x][y] = 0;
+    Q.push({x, y});
     int result = 0;
-    while(!DQ.empty()){
-        int X = DQ.front().first;
-        int Y = DQ.front().second;
+    while(!Q.empty()){
+        int X = Q.front().first;
+        int Y = Q.front().second;
         result = max(result, Visit[X][Y]);
-        DQ.pop_front();
+        Q.pop();
         for(int i = 0; i < 4; i++){
             int nx = X + dx[i];
             int ny = Y + dy[i];
-            if(nx > 0 && nx <= N && ny > 0 && ny <= M && Visit[nx][ny] == 0 && MATRIX[nx][ny] != 'W'){
+            if(nx > 0 && nx <= N && ny > 0 && ny <= M && Visit[nx][ny] == -1 && MATRIX[nx][ny] == 'L'){
                 Visit[nx][ny] = Visit[X][Y] + 1;
-                DQ.push_back({nx, ny});
+                Q.push({nx, ny});
             }
         }
     }
@@ -52,9 +53,9 @@ int main(){
     for(int i = 1; i <= N; i++){
         for(int j = 1; j <= M; j++){
             if(MATRIX[i][j] == 'L'){
-                clear(N, M);
                 int result = BFS(i, j, N, M);
                 answer = max(result, answer);
+                clear(N, M);
             }
         }
     }

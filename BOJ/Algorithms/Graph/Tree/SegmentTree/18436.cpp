@@ -14,7 +14,7 @@ int init(int start, int end, int node){
 
 void update(int start, int end, int node, int index, int val){
     if(index < start || end < index) return;
-    tree[index] += val;
+    tree[node] += val;
     if(start != end){
         int mid = (start + end) / 2;
         update(start, mid, node * 2, index, val);
@@ -47,7 +47,7 @@ int main(){
             if(arr[x-1] != y){
                 if(y == 1) update(0, N-1, 1, x-1, 1);
                 else update(0, N-1, 1, x-1, -1);
-                //arr[x-1] = y;
+                arr[x-1] = y;
             }
         }else if (oper == 2){
             cout << y - x + 1 - query(0, N-1, x-1, y-1, 1) << "\n";

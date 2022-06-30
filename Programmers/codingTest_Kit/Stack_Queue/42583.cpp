@@ -12,7 +12,7 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 
     while(1){
         if(idx == truck_weights.size()){
-            answer += truck_weights.size();
+            answer += bridge_length;
             break;
         }
         answer++;

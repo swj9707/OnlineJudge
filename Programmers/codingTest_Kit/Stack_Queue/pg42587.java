@@ -5,9 +5,7 @@ import java.util.*;
 public class pg42587 {
     public int solution(int[] priorities, int location) {
         int answer = 0;
-
         PriorityQueue<Integer> PQ = new PriorityQueue<>(Collections.reverseOrder());
-
         for(int i = 0; i < priorities.length; i++){
             PQ.add(priorities[i]);
         }
@@ -19,13 +17,12 @@ public class pg42587 {
                         answer++;
                         return answer;
                     }
+                    PQ.poll();
+                    answer++;
                 }
-                PQ.poll();
-                answer++;
             }
         }
-    
+
         return -1;
     }
-    
 }

@@ -1,27 +1,28 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 #define MAX 9
 using namespace std;
 
 int N, M;
 int MATRIX[MAX];
 int DATA[MAX];
-bool visit[MAX];
-
+bool VISIT[MAX];
+set <vector<int>> st;
 void DFS(int count){
     if(count == M){
+        vector<int> tmp;
         for(int i = 0; i < M; i++){
-            cout << DATA[MATRIX[i]] << " ";
+            tmp.push_back(DATA[MATRIX[i]]);
         }
-        cout << '\n';
+        st.insert(tmp);
         return;
     }
+
     for(int i = 1; i <= N; i++){
-        if(!visit[i]){
-            visit[i] = true;
+        if(!VISIT[i]){
+            VISIT[i] = true;
             MATRIX[count] = i;
             DFS(count + 1);
-            visit[i] = false;
+            VISIT[i] = false;
         }
     }
 }
@@ -31,4 +32,11 @@ int main(){
     for(int i = 1; i <= N; i++) cin >> DATA[i];
     sort(DATA+1, DATA + N + 1);
     DFS(0);
+
+    for(auto vec : st){
+        for(auto tmp : vec){
+            cout << tmp << " ";
+        }
+        cout << '\n';
+    }
 }

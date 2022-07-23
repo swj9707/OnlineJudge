@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+<<<<<<< HEAD
 #define MAX 51
 using namespace std;
 
@@ -14,5 +15,15 @@ int main(){
             cin >> MATRIX[i][j];
         }
     }
+=======
+
+using namespace std;
+
+vector<pair<int, int>> house;
+vector<pair<int, int>> chicken;
+
+
+int main(){
+>>>>>>> 5d264acf31c6829eaf9e2c417e7e2d5112a48baf
 
 }

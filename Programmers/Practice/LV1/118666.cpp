@@ -16,35 +16,16 @@ string solution(vector<string> survey, vector<int> choices) {
         char right = survey[i][1];
         if(choice != 4){
             if(choice >= 1 && choice <= 3){
-                mp[left] += 4 - choice;
+                mp[left] += abs(4 - choice);
             } else {
-                mp[right] += choice - 4;
+                mp[right] += abs(4 - choice);
             }
         }
     }
-    if(mp['R'] >= mp['T']){
-        answer += 'R';
-    } else {
-        answer += 'T';
-    }
-    
-    if(mp['C'] >= mp['F']){
-        answer += 'C';
-    } else {
-        answer += 'F';
-    }
-    
-    if(mp['J'] >= mp['M']){
-        answer += 'J';
-    } else {
-        answer += 'M';
-    }
-    
-    if(mp['A'] >= mp['N']){
-        answer += 'A';
-    } else {
-        answer += 'N';
-    }
+    answer += (mp['R'] >= mp['T']) ? 'R' : 'T';
+    answer += (mp['C'] >= mp['F']) ? 'C' : 'F';
+    answer += (mp['J'] >= mp['M']) ? 'J' : 'M';
+    answer += (mp['A'] >= mp['N']) ? 'A' : 'N';
     
     return answer;
 }

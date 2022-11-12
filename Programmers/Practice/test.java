@@ -1,12 +1,12 @@
 class Solution {
-    public String solution(String my_string) {
-        String answer = "";
-
-        for (int i = 0; i < my_string.length(); i++) {
-            if (my_string.indexOf(my_string.charAt(i)) == i)
-                answer += my_string.charAt(i);
+    public int solution(int chicken) {
+        int answer = 0;
+        while (chicken >= 10) {
+            int div = chicken / 10;
+            int mod = chicken % 10;
+            answer += div;
+            chicken = div + mod;
         }
-
         return answer;
     }
 }

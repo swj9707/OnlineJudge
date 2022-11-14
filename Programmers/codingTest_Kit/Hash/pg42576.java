@@ -3,20 +3,20 @@ package Programmers.codingTest_Kit.Hash;
 import java.util.*;
 
 public class pg42576 {
-    public String solution(String[] participant, String[] completion){
+    public String solution(String[] participant, String[] completion) {
         String answer = "";
         HashMap<String, Integer> map = new HashMap<>();
-        for(String player : participant){
+        for (String player : participant) {
             map.put(player, map.getOrDefault(player, 0) + 1);
         }
-        for(String player : completion){
+        for (String player : completion) {
             map.put(player, map.get(player) - 1);
         }
         Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
 
-        while(iter.hasNext()){
+        while (iter.hasNext()) {
             Map.Entry<String, Integer> entry = iter.next();
-            if(entry.getValue() != 0){
+            if (entry.getValue() != 0) {
                 answer = entry.getKey();
                 break;
             }

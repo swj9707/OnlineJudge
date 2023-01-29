@@ -8,6 +8,13 @@
       "type": "java",
       "name": "Launch Main",
       "request": "launch",
+      "mainClass": "Softeer.LV2.Main",
+      "projectName": "OnlineJudge_5369a8e4"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
       "mainClass": "Main",
       "projectName": "OnlineJudge_5369a8e4"
     },

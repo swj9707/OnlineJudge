@@ -8,6 +8,13 @@
       "type": "java",
       "name": "Launch Main",
       "request": "launch",
+      "mainClass": "BOJ.Algorithms.Graph.Main",
+      "projectName": "OnlineJudge_8fdc46b0"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
       "mainClass": "Softeer.LV2.Main",
       "projectName": "OnlineJudge_5369a8e4"
     },

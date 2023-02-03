@@ -8,6 +8,20 @@
       "type": "java",
       "name": "Launch Main",
       "request": "launch",
+      "mainClass": "BOJ.Algorithms.Graph.Dijkstra.Main",
+      "projectName": "OnlineJudge_5369a8e4"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "BOJ.Algorithms.DataStructure.Main",
+      "projectName": "OnlineJudge_5369a8e4"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
       "mainClass": "BOJ.Algorithms.Graph.Main",
       "projectName": "OnlineJudge_8fdc46b0"
     },

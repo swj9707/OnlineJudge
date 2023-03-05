@@ -10,16 +10,16 @@ class Solution {
     static final int[] dy = new int[] { 1, -1, 0, 0 };
 
     public int solution(String[] maps) {
-        int answer = 0;
-
+       
         int startX = 0, startY = 0;
+        int switchX = 0, switchY = 0;
         int destX = 0, destY = 0;
         int N = maps.length;
         int M = maps[0].length();
 
         for (int i = 1; i <= maps.length; i++) {
-            for (int j = 1; j < maps[0].length(); j++) {
-                char tmp = maps[i].charAt(j - 1);
+            for (int j = 1; j <= maps[i - 1].length(); j++) {
+                char tmp = maps[i - 1].charAt(j - 1);
                 MATRIX[i][j] = tmp;
                 if (tmp == 'S') {
                     startX = i;
@@ -27,13 +27,27 @@ class Solution {
                 } else if (tmp == 'E') {
                     destX = i;
                     destY = j;
+                } else if (tmp == 'L'){
+                    switchX = i;
+                    switchY = j;
                 }
             }
         }
-
-        answer = BFS(startX, startY, destX, destY, N, M);
-
-        return answer;
+        
+        int first = BFS(startX, startY, switchX, switchY, N, M);
+        
+        
+        if(first != -1){
+            VISIT = new int[101][101];
+            int second = BFS(switchX, switchY, destX, destY, N, M);
+            if(second != -1){
+                return first + second;
+            } else {
+                return -1;
+            }
+        } else {
+            return -1;
+        }
     }
 
     public static int BFS(int startX, int startY, int destX, int destY, int N, int M) {

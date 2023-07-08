@@ -15,7 +15,7 @@ class Solution {
 
     public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
         int answer = 0;
-        
+
         int start_x=characterX*2;
         int start_y=characterY*2;
         int end_x=itemX*2;

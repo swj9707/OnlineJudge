@@ -27,7 +27,7 @@ class Main {
             }
 
             int score = 1;
-            int min = 99999999;
+            int min = Integer.MAX_VALUE;
             int answer = 0;
 
             for (int i = 0; i < N; i++) {
